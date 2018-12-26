@@ -1,0 +1,3 @@
+tips： off-by-one 没有libc地址就创造libc地址
+
+flag严格区分大小写
