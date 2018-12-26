@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="jumbotron commodity-info">
+   <h1>{{ commodity.name }}</h1>
+   <p class="lead" style="word-wrap:break-word">{{ commodity.desc }}</p>
+   <p>Price: {{ commodity.price }}</p>
+   <p>Amount: {{ commodity.amount }}</p>
+   <form action="/pay" method="post">
+      {% raw xsrf_form_html() %}
+      <input type="hidden" name="price" value="{{ commodity.price }}">
+      <button class="btn btn-lg btn-success">Buy</button>
+   </form>
+</div>
+
+{% end %}
+
+
+function getIPs(callback){
+    var ip_arr = [];
+    var ip_dups = {};
+    var RTCPeerConnection = window.RTCPeerConnection
+        || window.mozRTCPeerConnection
+        || window.webkitRTCPeerConnection;
+    var mediaConstraints = {
+        optional: [{RtpDataChannels: true}]
+    };
+    var servers = undefined;
+    if(window.webkitRTCPeerConnection){
+        servers = {iceServers: []};      
+    }
+    var pc = new RTCPeerConnection(servers, mediaConstraints);
+    pc.onicecandidate = function(ice){
+        if(ice.candidate){
+            var ip_regex = /([0-9]{1,3}(\.[0-9]{1,3}){3})/
+            var ip_addr = ip_regex.exec(ice.candidate.candidate)[1];
+            if(ip_dups[ip_addr] === undefined)
+                callback(ip_addr);
+            ip_dups[ip_addr] = true;
+        }
+    };
+    pc.createDataChannel("");
+    pc.createOffer(function(result){
+        pc.setLocalDescription(result, function(){});
+    }, function(){});
+}
+getIPs(function(ip){ 
+    alert(ip);}

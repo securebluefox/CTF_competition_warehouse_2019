@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="jumbotron">
+       <h1>意见箱</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+{#            <input class="hidden" name="id" value="1">#}
+            请输入意见
+            <input name="suggestion" value="">
+            <button class="btn btn-danger" type="submit">提交</button>
+            <div class="exp" hidden>{{ exp }}</div>
+        </form>
+    </div>
+{% endblock %}

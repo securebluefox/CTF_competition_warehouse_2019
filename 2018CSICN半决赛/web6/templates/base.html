@@ -1,0 +1,181 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>西域美食</title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <!-- Custom Theme files -->
+    <!--theme-style-->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <!--//theme-style-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Fashion Mania Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- start menu -->
+    <link href="{% static 'css/memenu.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <script type="text/javascript" src="{% static 'js/memenu.js' %}"></script>
+    <script>$(document).ready(function(){$(".memenu").memenu();});</script>
+    <script src="{% static 'js/simpleCart.min.js' %}"> </script>
+    <!-- slide -->
+    <script src="{% static 'js/responsiveslides.min.js' %}"></script>
+    <script>
+        $(function () {
+            $("#slider").responsiveSlides({
+                auto: true,
+                speed: 500,
+                namespace: "callbacks",
+                pager: true
+            });
+        });
+    </script>
+</head>
+<body>
+<!--header-->
+<div class="header">
+<div class="header-top">
+    <div class="container">
+        <div class="col-sm-4 world">
+        </div>
+        <div class="col-sm-4 logo">
+            <a href="/"><img src="{% static 'images/logo.jpg' %}" alt=""></a>
+        </div>
+
+        <div class="col-sm-4 header-left">
+            {% if not request.user.is_authenticated %}
+                <p class="log"><a href="{% url 'login' %}"  >登录</a>
+                <span>|</span>
+                <a  href="{% url 'register' %}"  >注册</a></p>
+            {% else %}
+                <p class="log"><a href="{% url 'user' %}"  >{{ request.user.username }}</a>
+                <span>|</span>
+                <a  href="{% url 'logout' %}"  >退出</a></p>
+            {% endif %}
+            <div class="cart box_1">
+                <a href="{% url 'view_cart' %}">
+                    <h3>
+                        <div class="total">
+                            {% if request.user.is_authenticated %}
+                                {% if cart.total_price %}
+                                    <span>{{ cart.total_price }}元</span>
+                                {% else %}
+                                    <span>0.0元</span>
+                                {% endif %}
+                            {% else %}
+                                <span>0.0元</span>
+                            {% endif %}
+                        </div>
+                        <img src="{% static 'images/cart.png' %}" alt=""/></h3>
+                </a>
+                <p><a href="{% url 'clean_cart' %}" class="simpleCart_empty">清空购物车</a></p>
+
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<div class="container">
+    <div class="head-top">
+        <div class="col-sm-2 number">
+        </div>
+        <div class="col-sm-8 h_menu4">
+            <ul class="memenu skyblue">
+                <li class=" grid"><a  href="{% url 'index' %}">主页</a></li>
+                <li><a  href="#">干果</a>
+                    <div class="mepanel">
+                        <div class="row">
+                            <div class="col1">
+                                <div class="h_nav">
+                                    <h4>巴旦木</h4>
+                                </div>
+                            </div>
+                            <div class="col1">
+                                <div class="h_nav">
+                                    <h4>核桃</h4>
+                                </div>
+                            </div>
+                            <div class="col1">
+                                <div class="h_nav">
+                                    <h4>红枣</h4>
+                                    <ul>
+                                        {% for brand in brand_list %}
+                                            <li><a href="{% url 'brands' %}?bid={{ brand.id }}">{{ brand.name }}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="grid"><a  href="#">美食</a>
+                    <div class="mepanel">
+                        <div class="row">
+                            <div class="col1">
+                                <div class="h_nav">
+                                    <h4>大盘鸡</h4>
+                                </div>
+                            </div>
+                            <div class="col1">
+                                <div class="h_nav">
+                                    <h4>羊肉串</h4>
+                                </div>
+                            </div>
+                            <div class="col1">
+                                <div class="h_nav">
+                                    <h4>烤包子</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a  href="{% url 'shop' %}">美食列表</a></li>
+            </ul>
+        </div>
+        <div class="clearfix"> </div>
+        <!---pop-up-box---->
+{#        <script type="text/javascript" src="js/modernizr.custom.min.js"></script>#}
+        <link href="{% static 'css/popuo-box.css' %}" rel="stylesheet" type="text/css" media="all"/>
+        <script src="{% static 'js/jquery.magnific-popup.js' %}" type="text/javascript"></script>
+        <!---//pop-up-box---->
+        <script>
+            $(document).ready(function() {
+                $('.popup-with-zoom-anim').magnificPopup({
+                    type: 'inline',
+                    fixedContentPos: false,
+                    fixedBgPos: true,
+                    overflowY: 'auto',
+                    closeBtnInside: true,
+                    preloader: false,
+                    midClick: true,
+                    removalDelay: 300,
+                    mainClass: 'my-mfp-zoom-in'
+                });
+
+            });
+        </script>
+        <!---->
+    </div>
+</div>
+</div>
+<!--banner-->
+{% block banner_block %}{% endblock %}
+<!--//banner-->
+<!--content-->
+{% block content_block %}{% endblock %}
+<!--//content-->
+<!--footer-->
+<div class="footer">
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="clearfix"> </div>
+            <p class="footer-class">Copyright &copy; 2018.Company name All rights reserved.<a target="_blank" href="https://github.com/Huseck">大象安服</a></p>
+        </div>
+    </div>
+</div>
+<!--//footer-->
+</body>
+</html>

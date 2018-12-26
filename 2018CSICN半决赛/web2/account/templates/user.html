@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="jumbotron user-info">
+    <h1 class="user-username">{{ user.username }}</h1>
+    <h3 class="user-email">邮箱地址：{{ user.email }}</h3>
+    <h3 class="user-integral">剩余积分：{{ user.integral }}.0</h3>
+
+    {% if is_show_suggestion %}
+    <div class="jumbotron">
+            尊敬的用户您好，由于您的积分等级达到了钻石会员的级别，我们特意为您开放意见箱功能，欢迎提意见给我们。
+            <a href="/suggestion">点击进入意见箱</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

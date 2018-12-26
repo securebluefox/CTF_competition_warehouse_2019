@@ -1,0 +1,6 @@
+ans_pos_x_1 = 248
+ans_pos_y_1 = 199
+ans_width_x_1 = 122
+ans_height_y_1 = 157
+
+vtt_ques = 请点击图中的圆柱体

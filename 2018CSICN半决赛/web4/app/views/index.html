@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <title>CISCN</title>
+</head>
+<body>
+<h1>CISCN</h1>
+<?php if(!loggedin()) { ?>
+	<a href="/login/">登录</a><br>
+<?php } else { ?>
+	<h3>hello <?php echo $_SESSION['user']['username'] ?></h3>
+	<a href="/user/">进入个人中心</a>
+<?php }?>
+
+<br><br>
+
+</body>
+</html>

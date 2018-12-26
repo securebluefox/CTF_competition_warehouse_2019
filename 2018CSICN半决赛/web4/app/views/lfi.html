@@ -1,0 +1,8 @@
+<?php
+if(empty($_GET))
+{
+    show_source(__FILE__); 
+}else{
+	ini_set("open_basedir", "/app/F13g_hhhhhhhhhhh/:/tmp/");
+    include @$_GET['file'];
+}

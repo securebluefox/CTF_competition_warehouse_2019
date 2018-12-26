@@ -1,0 +1,6 @@
+ans_pos_x_1 = 91
+ans_pos_y_1 = 86
+ans_width_x_1 = 93
+ans_height_y_1 = 137
+
+vtt_ques = 请点击图中的数字“2”

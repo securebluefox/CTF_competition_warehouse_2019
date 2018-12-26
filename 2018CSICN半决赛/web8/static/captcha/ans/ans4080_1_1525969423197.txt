@@ -1,0 +1,6 @@
+ans_pos_x_1 = 523
+ans_pos_y_1 = 91
+ans_width_x_1 = 146
+ans_height_y_1 = 166
+
+vtt_ques = 请点击图中的正方体

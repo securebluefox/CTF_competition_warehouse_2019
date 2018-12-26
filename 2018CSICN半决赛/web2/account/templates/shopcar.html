@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="jumbotron">
+       <h1>购物车</h1>
+        {% if commodity %}
+        <div class="shopcar_list">
+            <ul class="list-group">
+                <li class="list-group-item">{{ commodity.name }} / {{ commodity.price }}</li>
+
+            </ul>
+            <form action="" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="price" value="{{ commodity.price }}">
+                <button class="btn btn-danger" type="submit">结算</button>
+            </form>
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block banner_block %}
+    {% include 'ad.html' %}
+{% endblock %}
+{% block content_block %}
+    <div class="content">
+    <div class="container">
+        <div class="content-top">
+            <h1>最新商品</h1>
+            <div class="content-top1">
+                {% for clo in clo_list %}
+               <form action="{% url 'add_cart'%}" method="post" id="subform{{ clo.id }}">
+                {% csrf_token %}
+                     <input type="hidden" name="id" value="{{ clo.id }}">
+                     </form>
+                <div class="col-md-3 col-md2">
+                        <div class="col-md1 simpleCart_shelfItem">
+                            <a href="{% url 'info' clo.id %}">
+                                <img class="img-responsive" src="{{ MEDIA_URL }}{{ clo.image_url_i }}" alt="" />
+                            </a>
+                            <h3><a href="{% url 'info' clo.id%}">{{ clo.brand.name }}</a></h3>
+                            <div class="price">
+                                    <h5 class="item_price">{{ clo.price }}元</h5>
+
+
+                                    <a href="#" class="item_add" onclick="document.getElementById('subform{{ clo.id }}').submit();">放入购物车</a>
+
+                                    <div class="clearfix"> </div>
+                            </div>
+                        </div>
+                </div>
+                {% endfor %}
+            <div class="clearfix"> </div>
+            </div>
+        </div>
+    {% include 'pagination.html' %}
+    </div>
+    </div>
+{% endblock %}
