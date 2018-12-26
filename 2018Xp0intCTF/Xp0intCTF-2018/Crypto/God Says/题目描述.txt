@@ -1,0 +1,1 @@
+All lines are XORed by the same key from /dev/urandom !
