@@ -1,0 +1,70 @@
+{template 'yp', 'header'}
+<div class="main clear">
+	<div class="crumbs" style="margin-bottom:0"><a href="">首页</a><span> &gt; </span><a href="{get_yp_url()}">企业黄页</a> &gt; <a href="{get_yp_url('model', $modelid)}">产品</a> &gt; 对比</div>
+    <div class="compare">
+        <table border="0" width="100%" class="products-para">{php $tg = ''; $centage=ceil(88/count($product));}
+            <caption><div class="title">{loop $product $pr}
+{php echo $tg.$pr['title']}
+{php $tg = '、';}
+{/loop}<span style="color:#a21">参数对比</div></caption>
+        <tbody>
+            <tr class="blue">
+              <th width="100"></th>
+			   {loop $product $k $pr}
+              <td id="prns_{$k}" align="center" width="{$centage}%"><a href="javascript:void(0);" onclick="$('#prns_{$k}').text('');$('.prtd_{$k}').text('');remove('{$k}', '{$pr[catid]}')">[取消对比]</a></td>
+			  {/loop}
+            </tr>
+			<tr class="title">
+              <th width="100">商家名称</th>
+			  {loop $product $k $pr}
+              <td style="text-align:center" class="prtd_{$k}"><a href="{$pr['companyurl']}" target="_blank">{$pr['companyname']}</a></td>
+			  {/loop}
+            </tr>
+			<tr>
+              <th width="100" class="fn">信用等级</th>
+			  {loop $product $k $pr}
+              <td style="text-align:center" class="prtd_{$k}">{get_company_rank($pr['userid'])}</td>
+			  {/loop}
+            </tr>
+			<tr class="title">
+              <th width="100">基本信息</th>
+			  {loop $product $k $pr}
+              <td style="text-align:center" class="prtd_{$k}">{$pr['title']}</td>
+			  {/loop}
+            </tr>
+			{loop $fields $f $field}
+			{if in_array($field['formtype'], array('image', 'text', 'number', 'box', 'linkage')) && !in_array($f, array('elite', 'status', 'allow_comment', 'username', 'listorder'))}
+            <tr>
+              <th width="100" class="fn">{if $field['name']=='URL'}链接{else} {$field['name']} {/if}</th>
+			  {loop $product $k $pr}
+              <td style="text-align:center" class="prtd_{$k}">{if $field['name']=='URL'}<a href="{$pr[$f]}" target="_blank">详情</a>{elseif $field['formtype']=='image'}<img src="{$pr[$f]}" width="120">{else} {$pr[$f]} {/if}</td>
+			  {/loop}
+            </tr>
+			{/if}
+			{/loop}
+			<tr class="title">
+              <th width="100">其他参数</th>
+			  {loop $product $k $pr}
+              <td style="text-align:center" class="prtd_{$k}">{$pr['title']}</td>
+			  {/loop}
+            </tr>
+			{loop $additional_fields $f $field}
+			{if in_array($field['formtype'], array('text', 'number', 'box', 'linkage'))}
+            <tr>
+              <th width="100" class="fn">{$field['name']}</th>
+			  {loop $additional_data $k $pr}
+              <td style="text-align:center" class="prtd_{$k}">{$pr[$f]}</td>
+			  {/loop}
+            </tr>
+			{/if}
+			{/loop}
+        </tbody>
+        </table>
+    </div>
+</div>
+<script type="text/javascript">
+	function remove(id, catid) {
+		$.get('{APP_PATH}index.php', {m:'yp', c:'index', a:'pk', action:'reduce', id:id, catid:catid, random:Math.random()});
+	}
+</script>
+{template 'yp', 'footer'}

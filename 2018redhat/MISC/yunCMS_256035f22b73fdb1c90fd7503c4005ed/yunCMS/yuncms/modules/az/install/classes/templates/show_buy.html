@@ -1,0 +1,150 @@
+{template 'yp', 'header'}
+<!--main-->
+<div class="main clear">
+	<div class="crumbs" style="margin-bottom:0"><a href="">首页</a><span> &gt; </span><a href="{get_yp_url()}">企业黄页</a> &gt; <a href="{get_yp_url('model', $modelid)}">商机</a> &gt; <a href="{$CAT['url']}">{$CAT['catname']}</a>  &gt;  {$title}</div>
+    <div class="bk10"></div>
+    <div class="col-left">
+    	<div class="box show-box supply">
+    	<h1>{$title}</h1>
+        <div class="content clear">
+            <div class="col-auto show-info">
+			{php $memberinfo = get_companyinfo($userid);$type_arr = get_parent_url($modelid, $catid);}
+            	<h2><span>商家：</span>{$memberinfo['companyname']}</h2>
+                <p><span>类别：</span><a href="{$CAT['url']}">{$type_arr['title']}</a><br />
+                   <span>品牌：</span>{$brand}<br />
+                   <span>型号：</span>{$standard}<br />
+                   <span>产地：</span>{$yieldly}<br />
+                   <span>价格：</span>{$price}元 {if $units}/ {$units} {/if}<br />
+                   <span>更新：</span>{$updatetime}
+				   {loop $additional_base $ab $af}<br /> <span>{$additional_fields[$ab]['name']}：</span>{$af}{/loop}</p></p>
+            </div>
+        </div>
+    </div>
+    <div class="bk10"></div>
+    	<div class="box generic products-desc">
+        	<div class="title"><strong>详细信息</strong></div>
+            <div class="desc">{$content}</div>
+        </div>
+        <div class="bk10"></div>
+        <div class="box generic products-desc">
+        	<div class="title"><strong>联系方式</strong></div>
+            {if $memberinfo['logo']}<div class="logo rt"><a href="{$memberinfo['url']}" target="_blank"><img src="{$memberinfo['logo']}" /></a><p align="center"><a href="{$memberinfo['url']}" class="blue" target="_blank">[进入店铺]</a></p></div>{/if}
+            <div class="desc">
+			公司名称：{$memberinfo['companyname']}<br />
+                    网址：{$memberinfo['web_url']}<br />
+                    地址：{$memberinfo['address']}<br />
+					联系人：{$memberinfo['linkman']}<br />
+                    传真：{string2img($memberinfo['fax'],5,12,'','333333')}<br />
+                    电话：{string2img($memberinfo['telephone'],5,9,'','333333')}
+			</div>
+        </div>
+        <div class="bk10"></div>
+        <div class="box generic web-asked">
+        	<div class="title"><strong>在线咨询</strong></div>
+			<form action="{APP_PATH}index.php?m=yp&c=com_index&a=guestbook&userid={$userid}" method="post" name="myform" id="myform"> 
+			<input name="info[userid]" type="hidden" value="{$userid}" />
+			<input name="info[title]" type="hidden" value="{$title}" />
+			<input name="info[url]" type="hidden" value="{get_url()}" />
+            <div class="content">
+	            <textarea name="info[content]" id="content"></textarea><br>
+                <p><input type="checkbox" id="SubContact" /> 为了方便商家与您取得联系，建议你留下联系方式</p>
+                <ul class="sub-contact">
+                	<li><label class="ib">联系人：</label><input name="info[username]" id="username" class="input-text" type="text" size="30" value=""></li>
+                    <li><label class="ib">QQ/MSN：</label><input name="info[qq]" id="qq" type="text" class="input-text" size="30" value=""></li>
+                    <li><label class="ib">手机号：</label><input name="info[telephone]" id="telephone" class="input-text" type="text" size="30" value=""></li>
+                </ul>
+                <p>验证码：<input name="code" type="text" id="code" size="10"  class="input-text"/> {form::checkcode('code_img','4','14',110,30)}</p>
+                <p class="btn"><input type="submit" name="dosubmit" value="提交留言" /></p>
+            </div>
+			</form>
+        </div>
+    </div>
+    <div class="col-auto">
+    	<div class="box box-tab fillet fillet-blue">
+        	<ul class="tab swap-tab clear cu-li">
+            	<li class="on">相关产品</li>
+                <li>最新产品</li>
+            </ul>
+        	<div class="swap-content">
+				{pc:yp action="relation" id="$id" modelid="$modelid" num="10" keywords="$str_keywords"}
+	            <ul class="list-num">
+				 {loop $data $r}
+		            <li><em{if $n<4} class="n{$n}"{/if}>{$n}</em><a href="{$r['url']}">{$r['title']}</a></li>
+		         {/loop}
+	            </ul>
+                {/pc}
+                {pc:yp action="lists" modelid="$modelid" order="id DESC" num="10"}
+	        	<ul class="list-num" style="display:none;">
+	         	  {loop $data $r}
+		            <li><em{if $n<4} class="n{$n}"{/if}>{$n}</em><a href="{$r['url']}">{str_cut($r['title'], 30)}</a></li>
+			      {/loop}
+	             </ul>
+				 {/pc}
+             </div>
+            <span class="o1"></span><span class="o2"></span><span class="o3"></span><span class="o4"></span>
+        </div>
+    	<div class="bk10"></div>
+        <div class="box box-tab fillet fillet-blue">
+        	<ul class="tab clear swap-tab cu-li">
+            	<li class="on">24小时热点商机</li>
+                <li>周热点商机</li>
+            </ul>
+			<div class="swap-content">
+			{php $buy_type = $this->buy_type;}
+			{pc:yp action="hits" modelid="$modelid" day="1"}
+         	<ul class="list-num">
+				{loop $data $r}
+					<li><em{if $n<4} class="n{$n}"{/if}>{$n}</em><a href="{yp_filters_url('tid', array('tid'=>$r['tid'], 'catid'=>$r['catid']), 2, $modelid)}" class="blue" target="_blank">[{$buy_type[$r['tid']]}]</a> <a href="{$r['url']}">{$r['title']}</a></li>
+				{/loop}
+            </ul>
+			{/pc}
+            {pc:yp action="hits" modelid="$modelid" order="weekviews DESC"}
+            <ul class="list-num" style="display:none;">
+				{loop $data $r}
+					<li><em{if $n<4} class="n{$n}"{/if}>{$n}</em><a href="{yp_filters_url('tid', array('tid'=>$r['tid'], 'catid'=>$r['catid']), 2, $modelid)}" class="blue" target="_blank">[{$buy_type[$r['tid']]}]</a> <a href="{$r['url']}">{str_cut($r['title'], 30)}</a></li>
+				{/loop}
+            </ul>
+			{/pc}
+			</div>
+            <span class="o1"></span><span class="o2"></span><span class="o3"></span><span class="o4"></span>
+        </div>
+    </div><div class="bk"></div>
+</div>
+<link href="{CSS_PATH}table_form.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{JS_PATH}formvalidatorregex.js" charset="UTF-8"></script>
+<script type="text/javascript" src="{JS_PATH}formvalidator.js" charset="UTF-8"></script>
+<script type="text/javascript">
+<!--
+$(function(){
+	$.formValidator.initConfig({autotip:true,formid:"myform",onerror:function(msg){}});
+$("#code").formValidator({onshow:"请输入验证码",onfocus:"验证码不能为空"}).inputValidator({min:1,max:999,onerror:"验证码不能为空"}).ajaxValidator({
+	    type : "get",
+		url : "",
+		data :"m=pay&c=deposit&a=public_checkcode",
+		datatype : "html",
+		async:'false',
+		success : function(data){	
+            if(data == 1){
+                return true;
+			}
+            else
+			{
+                return false;
+			}
+		},
+		buttons: $("#dosubmit"),
+		onerror : "验证码错误",
+		onwait : "验证中"
+	});
+	$("#SubContact").click(function(){
+		if($("#SubContact").attr("checked")==true){
+			$(".sub-contact").show();
+		}else{
+			$(".sub-contact").hide();
+		}
+	})
+	$('.products-desc .logo img').LoadImage(true, 130, 110,'{IMG_PATH}s_nopic.gif');
+}) 
+//-->
+</script>
+{template 'yp', 'footer'}

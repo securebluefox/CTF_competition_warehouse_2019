@@ -1,0 +1,29 @@
+{php $tpl_dir = $this->default_tpl;}
+{template $tpl_dir, 'header'}
+<div class="main clear">
+  <div class="col-auto">
+  	{template 'yp/com_default', 'block_contact'}
+   	  <h2 class="crumbs">产品中心<span>/PRODUCTS</span></h2>
+    <div class="sub-nav">产品分类：{if $catid}<a href="{compute_company_url('model', 0)}">{/if}全部{if $catid}</a>{/if}{loop $catid_arr $cid $c}
+	{if $catid!=$cid}<a href="{compute_company_url('model', array('catid'=>$cid, 'id'=>0, 'page'=>1))}">{/if}
+	{$categorys[$cid]['catname']}({$c['num']})
+	{if $catid!=$cid}</a>{/if} 
+	{/loop}</div>
+    		  {php $urlrule = yp_makeurlrule();}
+		{pc:yp action="lists" userid="$array[userid]" modelid="$modelid" catid="$catid" num="15" order="inputtime DESC" page="$page" urlrule="$urlrule"}
+              <ul class="products-list picbig clear">
+                {loop $data $r}
+                    <li>
+                    <div class="img-wrap">
+                    <a href="{compute_company_url('show', array('catid'=>$r['catid'], 'id'=>$r['id'], 'page'=>1))}" title="{$r[title]}"><img src="{$r[thumb]}" title="{$r[title]}"></a>
+                    </div>
+                    <a href="{compute_company_url('show', array('catid'=>$r['catid'], 'id'=>$r['id'], 'page'=>1))}" title="{$r[title]}">{$r[title]}</a>
+                    </li> 
+                {/loop}
+             </ul>
+             <div id="pages" class="text-c">{$pages}</div>
+            {/pc}
+               
+        </div>
+</div>
+{template 'yp/com_default', 'footer'}

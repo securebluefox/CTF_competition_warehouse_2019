@@ -1,0 +1,16 @@
+{php $tpl_dir = $this->default_tpl;}
+{template $tpl_dir, 'header'}
+<div class="main clear">
+  <div class="col-auto">
+      {template $tpl_dir, 'block_contact'}
+   	  <h2 class="crumbs">新闻中心<span>/NEWS</span></h2>
+      <div class="sub-nav">分类：<a href="{compute_company_url('model')}">全部</a>{loop $catid_arr $cid $c}<a href="{compute_company_url('model', array('catid'=>$cid))}">{$CATEGORYS[$cid]['catname']}({$c['num']})</a>
+	{/loop}</div>
+      <div class="Article">
+      		<h2 class="title">{$title}<br /><span>{$updatetime} </span></h2>
+      		{$content}
+      </div>  
+	  <div id="pages" class="text-c">{$pages}</div>
+   </div>
+</div>
+{template $tpl_dir, 'footer'}

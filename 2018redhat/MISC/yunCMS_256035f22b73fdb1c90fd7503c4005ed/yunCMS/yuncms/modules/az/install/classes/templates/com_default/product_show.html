@@ -1,0 +1,136 @@
+{php $tpl_dir = $this->default_tpl;}
+{template $tpl_dir, 'header'}
+<link rel="stylesheet" type="text/css" href="{CSS_PATH}jquery.ad-gallery.css">
+<div class="main clear">
+  <div class="col-auto">
+  	{template $tpl_dir, 'block_contact'}
+   	  <h2 class="crumbs">产品中心<span>/PRODUCTS</span></h2>
+    <div class="sub-nav">产品分类：<a href="{compute_company_url('model')}">全部</a>{loop $catid_arr $cid $c}<a href="{compute_company_url('model', array('catid'=>$cid))}">{$CATEGORYS[$cid]['catname']}({$c['num']})</a>
+	{/loop}</div>
+              <div class="show-box">
+    	<h1>{$title}</h1> 
+        <div class="content clear">
+			{if $exhibit}
+            <div class="show-box-pic">
+            	<!--slide play-->
+                <div id="gallery" class="ad-gallery"><div class="ad-border"><div class="ad-image-wrapper"></div></div><div class="ad-controls"></div><div class="ad-nav"><div class="ad-thumbs">
+                <ul class="ad-thumb-list">
+	            {loop $exhibit $e}
+				<li><a href="{$e['url']}"><img src="{thumb($e['url'], 64, 44)}" ></a></li>
+				{/loop}
+          		</ul></div></div></div>
+                <!--slide end-->
+            </div>
+<script type="text/javascript" src="{JS_PATH}jquery.ad-gallery.js"></script>
+<script type="text/javascript">
+$(function() {
+	  var galleries = $('.ad-gallery').adGallery();
+	  galleries[0].settings.effect = 'fade';
+});
+</script>
+			{/if}
+            <div class="col-auto show-info">
+			{php $type_arr = get_parent_url($modelid, $catid);}
+                 <p><span>类别：</span><a href="{$CAT['url']}">{$type_arr['title']}</a><br />
+                   <span>品牌：</span>{$brand}<br />
+                   <span>型号：</span>{$standard}<br />
+                   <span>产地：</span>{$yieldly}<br />
+                   <span>价格：</span>{$price}元 {if $units}/ {$units} {/if}<br />
+                   <span>更新：</span>{$updatetime}
+					{loop $additional_base $ab $af}<br /> <span>{$additional_fields[$ab]['name']}：</span>{$af}{/loop}</p>
+                 {if $setting['isbusiness']} <p class="btns"><a href="javascript:void(0);" onclick="add_buycar(this, '{$id}', '{$modelid}', '1')" class="buy"><span>立即购买</span></a><a href="javascript:void(0);" onclick="add_buycar(this, '{$id}', '{$modelid}')" class="buycar"><span>加入购物车</span></a></p>{/if}
+            </div>
+        </div>
+    </div>
+    {if $additional_general}
+    	<div class="bk10"></div>
+            <table width="100%" class="products-para" border="0">
+           <caption>基本参数</caption>
+          {loop $additional_general $ag $avalue}
+          {if $n%2==1}<tr>{/if}
+            <th width="15%">{$additional_fields[$ag]['name']}：</th>
+            <td width="35%">&nbsp;{$avalue}</td>
+          {if $n%2==0}</tr>{/if}
+		  {/loop}
+        </table>
+    {/if}
+            <div class="bk10"></div>
+            <div class="box">
+                <h2 class="title">产品介绍</h2>
+                    <div class="content">
+						{$content}
+                    </div>
+            </div>
+			<div class="bk10"></div>
+        <div class="box generic">
+        	<div class="title"><strong>商家推荐产品</strong></div>
+			{php $sql="`userid`='$userid' AND `status`=99 AND `elite`=1";}
+			{pc:yp action="lists" where="$sql" modelid="$modelid" num="10"}
+            <ul class="content news-photo picbig clear">
+				{loop $data $r}
+                <li>
+                    <div class="img-wrap">
+                        <a href="{$r['url']}" target="_blank"><img style="height: 85px; width: 62.7517px;" src="{$r['thumb']}" title="{$r['title']}"></a>
+                    </div>
+                    <a href="{$r['url']}" target="_blank" title="{$r['title']}">{str_cut($r['title'], 20)}</a>
+                </li>
+				{/loop}
+           </ul>
+		   {/pc}
+        </div>
+        </div>
+</div>
+<div class="bk15"></div>
+<div class="show-buycar" id="show-buycar">
+	<div class="title"><a href="javascript:;" onclick="$('.show-buycar').hide();" class="close">关闭</a><strong>提示</strong></div>
+    <div class="content">
+    	<h2>已成功添加到购物车！</h2>
+        <p>购物车里已有 <font color="#FF0000" class="fb" id="product_num">0</font> 件商品。总价 <font color="#FF0000" class="fb f20" id="product_fee">0.00</font> 元。</p>
+        <p class="bottom"><a href="{APP_PATH}index.php?m=yp&c=index&a=buycar_list" class="sbtn ib">去购物车结算</a></p>
+    </div>
+</div>
+<script type="text/javascript">
+
+function add_buycar(obj, id, modelid, buy) {
+	var os = $(obj);
+	$.get('{APP_PATH}index.php', {m:'yp', c:'index', a:'buycar', id:id, modelid:modelid, random:Math.random()}, function(data){
+		if (data=='1') {
+			alert('此商品不存在或已下架！');
+		} else if (data=='2') {
+			alert('不可购买自己的商品！');
+		} else if(data=='3') {
+			if (buy) {
+				window.location.href="{APP_PATH}index.php?m=yp&c=index&a=buycar_list";
+			} else {
+				alert('商品已经添加到购物车！');
+			}
+		} else {
+			if (buy) {
+				window.location.href="{APP_PATH}index.php?m=yp&c=index&a=buycar_list";
+			} else {
+				var obj = eval('(' + data + ')');
+				$('#product_num').html(obj.num);
+				$('#product_fee').html(obj.total);
+				var showBuycar=$(".show-buycar"),offset =os.offset();
+				showBuycar.css({"position":"absolute","z-index":"100",left:offset.left,top:offset.top+35});
+				if(showBuycar.css("display")=="none"){
+					showBuycar.show();
+				}else{
+					showBuycar.hide();
+				}
+				$('#buy_show').show();
+				$('#buy_show_num').html(obj.num);
+			}
+		}
+	});
+}
+
+$.get('{APP_PATH}index.php', {m:'yp', c:'index', a:'get_buycar', random:Math.random()},function(data){
+	var obj = eval('(' + data + ')');
+	if (obj.num) {
+		$('#buy_show').show();
+		$('#buy_show_num').html(obj.num);
+	}
+});
+</script>
+{template $tpl_dir, 'footer'}

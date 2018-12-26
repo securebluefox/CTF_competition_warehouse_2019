@@ -1,0 +1,279 @@
+{template 'yp', 'header'}
+<!--main-->
+<div class="main clear">
+	<div class="top-gg">
+    	<ul class="ads-146-60 clear">
+		{pc:yp action="get_company" elite="1" num="12" order="userid asc" cache="0"}
+		{loop $data $r}
+        	<li><a href="{$r['url']}" target="_blank" title="{$r[companyname]}"><img src="{$r[logo]}" width="143" height="60"/></a></li>
+		{/loop}
+		{/pc}
+         </ul>
+	</div>
+    <div class="col-left">
+    	<div class="box recom">
+        	<h5 class="title-2">市场行情</h5>
+            <div class="content">
+			{pc:content action="lists" catid="11076" num="7" order="id DESC"}
+                <ul class="list lh22">
+				{loop $data $r}
+                    <li> <a href="{$r[url]}" title="{$r[title]}">{str_cut($r[title], 30)}</a></li>
+                {/loop}
+                </ul>
+            {/pc}
+            </div>
+        </div>
+        <div class="col-auto">
+        	<div class="yp-slide">
+                <div class="FocusPic">
+                    <div class="content" id="yp-slide">
+                        <div class="changeDiv">  
+                        <!-- {pc:block pos="yp_slide"}{/pc} -->
+						<!-- 将以下内容用上面碎片替换 -->
+						<a href="http://bbs.phpcms.cn" title="黄页Beta 正式发布"><img src="{IMG_PATH}yp/ad.png" alt="黄页Beta 正式发布" width="447" height="201" /></a>
+						<!-- end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        	<div class="process">{pc:block pos="yp_slide_textad"}{/pc}</div>
+        </div>
+    </div>
+    <div class="col-auto">
+		{if $is_exit=='1'} 
+			<div class="yp-login ypbox">
+				<div class="title"><a href="{APP_PATH}index.php?m=member&c=index&a=logout&forward={urlencode(get_url())}" class="rt blue">退出</a>您好！<a href="{APP_PATH}index.php?m=member&siteid={$siteid}" class="blue">{$user_array['username']}</a></div>
+				<ul class="alerts">
+					<li>用户组：{$memberinfo['groupname']}</li>
+					<li>积分：<font color=red>{$user_array['point']}</font></li>
+				</ul>
+				<p class="yp-content">
+					<font color="red">加入企业库能给我带来什么好处：</font><br />
+					·查看买家求购信息，联系买家寻求商机<br />
+					·发布活动信息，发布产品信息<br />
+					·拥有精美企业店铺，让买家主动上门<br />
+				</p>
+				<p><a href="{APP_PATH}index.php?m=yp&c=business&a=init&t=3" class="reg f14 fb color-f70" target="_blank">立即免费入驻企业库</a></p>
+			</div>
+		{/if}
+		{if $is_exit == '0'} 
+        <form method="post" action="{APP_PATH}index.php?m=member&c=index&a=login" id="myform2" name="myform2">
+		<input type="hidden" name="forward" id="forward" value="{urlencode(get_url())}">
+        <div class="yp-login ypbox">
+            <div class="title fb">企业登录</div>
+            <ul class="login-form">
+            	<li><label>用户名：</label><input type="text" size="30" class="input" value="" name="username" id="k_username"></li>
+                <li><label>密　码：</label><input type="password" size="30" class="input" name="password" id="k_password"></li>
+                <li><label>验证码：</label><input type="text" id="code" name="code" id="code" size="8" class="input">{form::checkcode('code_img', '4', '14', 84, 24)}</li>
+                <li><label>&nbsp;</label><input type="submit" name="dosubmit" class="btn" value="">　<a href="{APP_PATH}index.php?m=member&c=index&a=register&siteid={$siteid}" class="blue" target="_blank">免费注册</a><span class="line"> | </span><a href="{APP_PATH}index.php?m=member&c=index&a=public_forget_password&siteid={$siteid}" class="blue">忘记密码？</a></li>
+            </ul>
+            <span class="o1"></span><span class="o2"></span><span class="o3"></span><span class="o4"></span>
+        </div>
+        </form>
+		{/if}
+		{if $is_exit == '2'}
+        <div class="yp-login ypbox" >
+        	<div class="title"><a href="{APP_PATH}index.php?m=member&c=index&a=logout&forward={urlencode(get_url())}" class="rt blue">退出</a>您好！<a href="{APP_PATH}index.php?m=yp&c=business&a=init&t=3" class="blue" title="{$company_user_array['companyname']}">{str_cut($company_user_array['companyname'],28)}</a></div>
+            <ul class="alerts" style="padding-top:8px">
+            	<li>用户组：{$memberinfo['groupname']}</li>
+                <li>积　分：<font color=red>{$user_array['point']}</font></li>
+                <li>留　言：<a href="{APP_PATH}index.php?m=yp&c=business&a=guestbook&status=0&t=3"><font color="red">{count_new_guestbook($company_user_array['userid'])}</font></a> 条</li>
+                <li>新订单：<a href="{APP_PATH}index.php?m=yp&c=business&a=pay&t=3"><font color=red>{get_orders()}</font></a> 笔</li>
+            </ul>
+            <div class="bk6"></div>
+            <div class="func-btn ib-a"><a href="{APP_PATH}index.php?m=yp&c=business&a=company&t=3" class="i5"><span>管理企业网站</span></a><a href="{$company_user_array['url']}" class="i1"><span>访问我的网站</span></a><a href="{APP_PATH}index.php?m=yp&c=business&a=content&action=add&modelid={$product_id}&t=3" class="i4"><span>发布产品</span></a><a href="{APP_PATH}index.php?m=yp&c=business&a=content&action=add&modelid={$buy_id}&t=3" class="i2"><span>发布供求信息</span></a></div>
+        </div>
+		{/if}
+    	<dl class="announce">
+        	<dt>公告</dt>
+            <dd>{pc:block pos="announce"}{/pc}</dd>
+        </dl>
+    </div>
+    <div class="bk10"></div>
+    <div class="col-left">
+    	<div class="category-main box">
+        	<div class="cat-name"><h4><a href="">所有类目</a></h4></div>
+            <div class="cat-top-nav blue">
+            {loop $pro_categorys $r}{if $r['parentid']=='0'}{if $n!=1}<span>| </span>{/if}<a href="{$r[url]}"><strong>{$r['catname']}</strong></a>{/if}{/loop}
+             </div>
+            <div class="cat-content">
+             {loop $pro_categorys $r}{if $r[parentid]=='0'}<div class="cat-item ib">
+                    <h4><a href="{$r['url']}">{$r['catname']}</a></h4>
+                    <p>
+							{php $arr_parentid = yp_subcat($r[catid], $product_id);}
+							{loop $arr_parentid $k}
+							<a title="{$k['catname']}" href="{$k['url']}" target="_blank">{$k['catname']}</a>
+							{/loop}
+                    </p>
+                </div>{/if}{/loop}
+			</div>
+        </div>
+        <div class="bk10"></div>
+        <div class="box generic">
+        	<div class="title"><strong>最新商机</strong> <a href="{yp_filters_url('tid', array('tid'=>1, 'catid'=>0), 2, $buy_id)}">供应</a><span> | </span> <a href="{yp_filters_url('tid', array('tid'=>2, 'catid'=>0), 2, $buy_id)}">求购</a><span> | </span> <a href="{yp_filters_url('tid', array('tid'=>3, 'catid'=>0), 2, $buy_id)}">二手</a><span> | </span> <a href="{yp_filters_url('tid', array('tid'=>4, 'catid'=>0), 2, $buy_id)}">促销</a></div>
+            <div class="content clear">
+            
+            
+             {php $order = $_GET['order'] ? $_GET['order'] : 'updatetime DESC'}
+			 {pc:yp action="lists" where=" tid=1 and status=99" modelid="$buy_id" order="$order" num="6"}
+             	<div class="sub-box">
+                	<h2 class="blue"><a href="{yp_filters_url('tid', array('tid'=>1, 'catid'=>0), 2, $buy_id)}">供应信息</a><a href="{yp_filters_url('tid', array('tid'=>1, 'catid'=>0), 2, $buy_id)}" class="more">更多>></a></h2>
+                    {pc:yp action="lists" where=" tid=1 and status=99 and elite=1 and thumb!=''" modelid="$buy_id" order="$order" num="1"}
+					<div class="pic">
+					{loop $data $r}
+                    	<a href="{$r[url]}" target="_blank"><img src="{$r[thumb]}" width="110" height="80" alt="{$r[title]}"/></a>
+                      <p><a href="{$r[url]}" target="_blank">{$r[title]}</a></p>
+					{/loop}
+                    </div>
+					{/pc}
+                    <ul class="list">
+                    	{loop $data $r}
+                    	<li>·<a href="{$r[url]}" target="_blank">{str_cut($r['title'],30,false)}</a></li>
+                    	{/loop}
+                    </ul>
+                </div>{/pc}
+                
+                {pc:yp action="lists" where=" tid=2 and status=99" modelid="$buy_id" order="$order" num="6"}
+             	<div class="sub-box">
+                	<h2 class="blue"><a href="{yp_filters_url('tid', array('tid'=>2, 'catid'=>0), 2, $buy_id)}">求购信息</a><a href="{yp_filters_url('tid', array('tid'=>2, 'catid'=>0), 2, $buy_id)}" class="more">更多>></a></h2>
+                    {pc:yp action="lists" where=" tid=2 and status=99 and elite=1 and thumb!=''" modelid="$buy_id" order="$order" num="1"}
+					<div class="pic">
+					{loop $data $r}
+                    	<a href="{$r[url]}" target="_blank"><img src="{$r[thumb]}" width="110" height="80" alt="{$r[title]}"/></a>
+                      <p><a href="{$r[url]}" target="_blank">{$r[title]}</a></p>
+					{/loop}
+                    </div>
+					{/pc}
+                    <ul class="list">
+                    	{loop $data $r}
+                    	<li>·<a href="{$r['url']}">{$r['title']}</a></li>
+                    	{/loop}
+                    </ul>
+                </div>{/pc}
+                
+                {pc:yp action="lists" where=" tid=3 and status=99" modelid="$buy_id" order="$order" num="6"}
+             	<div class="sub-box">
+                	<h2 class="blue"><a href="{yp_filters_url('tid', array('tid'=>3, 'catid'=>0), 2, $buy_id)}">二手信息</a><a href="{yp_filters_url('tid', array('tid'=>3, 'catid'=>0), 2, $buy_id)}" class="more">更多>></a></h2>
+                    {pc:yp action="lists" where=" tid=3 and status=99 and elite=1 and thumb!=''" modelid="$buy_id" order="$order" num="1"}
+						<div class="pic">
+						{loop $data $r}
+							<a href="{$r[url]}" target="_blank"><img src="{$r[thumb]}" width="110" height="80" alt="{$r[title]}"/></a>
+						 <p><a href="{$r[url]}" target="_blank">{$r[title]}</a></p>
+						{/loop}
+						</div>
+					{/pc}
+                    <ul class="list">
+                    	{loop $data $r}
+                    	<li>·<a href="{$r['url']}">{$r['title']}</a></li>
+                    	{/loop}
+                    </ul>
+                </div>{/pc}
+                
+                {pc:yp action="lists" where=" tid=4 and status=99" modelid="$buy_id" order="$order" num="6"}
+             	<div class="sub-box">
+                	<h2 class="blue"><a href="{yp_filters_url('tid', array('tid'=>4, 'catid'=>0), 2, $buy_id)}">促销信息</a><a href="{yp_filters_url('tid', array('tid'=>4, 'catid'=>0), 2, $buy_id)}" class="more">更多>></a></h2>
+                    {pc:yp action="lists" where=" tid=4 and status=99 and elite=1 and thumb!=''" modelid="$buy_id" order="$order" num="1"}
+						<div class="pic">
+						{loop $data $r}
+							<a href="{$r[url]}" target="_blank"><img src="{$r[thumb]}" width="110" height="80" alt="{$r[title]}"/></a>
+						<p><a href="{$r[url]}" target="_blank">{$r[title]}</a></p>
+						{/loop}
+						</div>
+					{/pc}
+                    <ul class="list">
+                    	{loop $data $r}
+                    	<li>·<a href="{$r['url']}">{$r['title']}</a></li>
+                    	{/loop}
+                    </ul>
+                </div>{/pc}
+      
+            </div>
+        </div>
+        <div class="bk10"></div>
+        <div class="box generic">
+        	<div class="title"><strong>产品推荐</strong> </div>
+            <ul class="content news-photo picbig clear">
+               
+			{pc:yp action="position" posid="$posid" modelid="$product_id" order="listorder asc" num="10" expiration="1"}  
+			{loop $data $r}
+			<li>
+			<div class="img-wrap">
+			<a title="" href="{$r[url]}" target="_blank"><img title="{$r[title]}" src="{$r[thumb]}" style="height: 85px; width: 61.5132px;"></a>
+			</div>
+			<a title="{$r[title]}" href="{$r[url]}">{str_cut($r[title],20,fasle)}</a>
+			</li> 
+			{/loop}
+			{/pc}
+           </ul>
+        </div>
+    </div>
+    <div class="col-auto">
+    	<div class="box box-tab fillet fillet-blue">
+        	<ul class="tab clear">
+            	<li class="on">最新加盟</li>
+                <li></li>
+             </ul>
+				<ul class="list-num">
+					{pc:yp action="get_company" num="10" order="regtime DESC" cache="3600"}
+ 					{loop $data $i}
+					<li><em {if $n<4}class="n{$n}"{/if} >{$n}</em><a href="{$i['url']}">{$i['companyname']}</a></li>
+ 					{/loop}
+					{/pc} 
+				</ul>
+            
+            <span class="o1"></span><span class="o2"></span><span class="o3"></span><span class="o4"></span>
+        </div>
+        <div class="bk10"></div>
+        <div class="box box-tab fillet fillet-blue">
+        
+        	<ul class="tab clear swap-tab cu-li">
+            	<li class="on">24小时热点商机</li>
+                <li>本周热点商机</li>
+            </ul>
+        	 <div class="swap-content">
+				{php $buy_type = $this->buy_type;}
+				{pc:yp action="hits" modelid="$buy_id" day="1"}
+					<ul class="list-num" >
+						{loop $data $r}
+							<li><em{if $n<4} class="n{$n}"{/if}>{$n}</em><a href="{yp_filters_url('tid', array('tid'=>$r['tid']), 2, $buy_id)}" class="blue" target="_blank">[{$buy_type[$r['tid']]}]</a> <a href="{$r['url']}">{$r['title']}</a></li>
+						{/loop}
+					</ul>
+				{/pc}
+	        	{pc:yp action="hits" modelid="$buy_id" order="weekviews DESC"}
+				<ul class="list-num" style="display:none;">
+					{loop $data $r}
+						<li><em{if $n<4} class="n{$n}"{/if}>{$n}</em><a href="{yp_filters_url('tid', array('tid'=>$r['tid'], 'catid'=>0), 2, $buy_id)}" class="blue" target="_blank">[{$buy_type[$r['tid']]}]</a> <a href="{$r['url']}">{str_cut($r['title'], 30)}</a></li>
+					{/loop}
+				</ul>
+				{/pc}
+             </div>
+            
+            <span class="o1"></span><span class="o2"></span><span class="o3"></span><span class="o4"></span>
+        </div>
+        <div class="bk10"></div>
+        <div class="box box-tab fillet fillet-blue">
+        	<ul class="tab clear swap-tab cu-li">
+            	<li class="on">推荐产品</li>
+                <li>最新产品</li>
+            </ul>
+            <div class="swap-content">
+                {pc:yp action="position" posids="$this->global_posid" modelid="$product_id" order="listorder asc" num="10" expiration="1"}
+	            <ul class="list-num">
+				 {loop $data $r}
+		            <li><em{if $n<4} class="n{$n}"{/if}>{$n}</em><a href="{$r['url']}">{$r['title']}</a></li>
+		         {/loop}
+		        {/pc}
+	            </ul>
+	        	<ul class="list-num" style="display:none;">
+	             {pc:yp action="lists" modelid="$product_id" order="id DESC" num="10"}
+	         	  {loop $data $r}
+		            <li><em{if $n<4} class="n{$n}"{/if}>{$n}</em><a href="{$r['url']}">{str_cut($r['title'], 30)}</a></li>
+			      {/loop}
+	             </ul>
+				 {/pc}
+            </div>
+            <span class="o1"></span><span class="o2"></span><span class="o3"></span><span class="o4"></span>
+        </div>
+    </div>
+</div>
+{template 'yp', 'footer'}

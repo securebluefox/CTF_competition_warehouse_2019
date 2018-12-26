@@ -1,0 +1,75 @@
+{template 'yp', 'header'}
+<div class="main clear">
+    <div class="col-left">
+    	<div class="category-main box generic">
+        	<div class="title"><strong>{$MODEL['name']}分类</strong></div>
+            <div class="cat-content">
+			{loop $arr_parentid $c}
+                <div class="cat-item ib">
+                    <h4><a href="{$c[url]}">{$c['catname']}</a></h4>
+					{if $c['child']}
+					{php $arr_child = yp_subcat($c['catid'], $modelid);}
+                    <p>
+					{loop $arr_child $catc}
+						<a title="{$catc['catname']}" href="{$catc['url']}" target="_blank">{$catc['catname']}</a>
+					{/loop}
+                        </p>
+						{/if}
+                </div>
+				{/loop}
+			</div>
+        </div>
+    </div>
+    <div class="col-auto">
+    	<div class="box box-tab fillet fillet-blue">
+        	<ul class="tab clear swap-tab cu-li">
+            	<li class="on">推荐产品</li>
+                <li>最新产品</li>
+            </ul>
+			<div class="swap-content">
+			{php $categorys_p = getcache('category_yp_'.$this->setting_models[73], 'yp');}
+			{pc:yp action="position" posid="$posid" modelid="$this->setting_models[73]" order="listorder ASC" expiration="1"}
+				<ul class="list-num">
+				{loop $data $r}
+					<li><em{if $n<4} class="n{$n}"{/if}>{$n}</em><a href="{$categorys_p[$r['catid']]['url']}" class="blue">[{$categorys_p[$r['catid']]['catname']}]</a> <a href="{$r['url']}">{str_cut($r['title'], 26)}</a></li>
+				{/loop}
+				</ul>
+			{/pc}
+			{pc:yp action="lists" modelid="$this->setting_models[73]" num="10" order="id ASC"}
+				<ul class="list-num" style="display:none;">
+				{loop $data $r}
+					<li><em{if $n<4} class="n{$n}"{/if}>{$n}</em><a href="{$categorys_p[$r['catid']]['url']}" class="blue">[{$categorys_p[$r['catid']]['catname']}]</a> <a href="{$r['url']}">{str_cut($r['title'], 26)}</a></li>
+				{/loop}
+				</ul>
+			{/pc}
+			</div>
+            <span class="o1"></span><span class="o2"></span><span class="o3"></span><span class="o4"></span>
+        </div>
+    	<div class="bk10"></div>
+        <div class="box box-tab fillet fillet-blue">
+        	<ul class="tab clear swap-tab cu-li">
+            	<li class="on">24小时热点商机</li>
+                <li>周热点商机</li>
+            </ul>
+			<div class="swap-content">
+			{php $buy_type = $this->buy_type;}
+			{pc:yp action="hits" modelid="$this->setting_models[76]" day="1"}
+         	<ul class="list-num">
+				{loop $data $r}
+					<li><em{if $n<4} class="n{$n}"{/if}>{$n}</em><a href="{yp_filters_url('tid', array('tid'=>$r['tid'], 'catid'=>$r['catid']), 2, 76)}" class="blue" target="_blank">[{$buy_type[$r['tid']]}]</a> <a href="{$r['url']}">{str_cut($r['title'], 30)}</a></li>
+				{/loop}
+            </ul>
+			{/pc}
+            {pc:yp action="hits" modelid="$this->setting_models[76]" order="weekviews DESC"}
+            <ul class="list-num" style="display:none;">
+				{loop $data $r}
+					<li><em{if $n<4} class="n{$n}"{/if}>{$n}</em><a href="{yp_filters_url('tid', array('tid'=>$r['tid'], 'catid'=>$r['catid']), 2, 76)}" class="blue" target="_blank">[{$buy_type[$r['tid']]}]</a> <a href="{$r['url']}">{str_cut($r['title'], 30)}</a></li>
+				{/loop}
+            </ul>
+			{/pc}
+			</div>
+            <span class="o1"></span><span class="o2"></span><span class="o3"></span><span class="o4"></span>
+        </div>
+    </div>
+</div>
+{template 'yp', 'footer'}

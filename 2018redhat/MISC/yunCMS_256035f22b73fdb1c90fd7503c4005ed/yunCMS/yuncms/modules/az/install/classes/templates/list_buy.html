@@ -1,0 +1,172 @@
+{template 'yp', 'header'}
+<!--main-->
+<div class="main clear">
+	<div class="crumbs" style="margin-bottom:0"><a href="{APP_PATH}">首页</a><span> &gt; </span><a href="{get_yp_url()}">企业黄页</a> &gt; <a href="{get_yp_url('model', $modelid)}">商机</a> &gt; 列表</div>
+    <div class="box cat-data" id="PropSingle">
+    	<div class="choosed"><strong class="ib">您已选择:</strong>{if is_array($parent_url) && !empty($parent_url)}<a href="{$parent_url['url']}" class="">{$parent_url['title']}</a>{/if}{loop $filter $fil}<a href="{$fil['url']}">{$fil['title']}</a>{/loop}</div>
+		{if $cat_arr}
+    	<dl class="clear">
+        	<dt><strong>分类：</strong></dt>
+            <dd class="AttrBox clear">
+			{php $fdata = yp_filters('catid',$modelid,$cat_arr,0);}
+			{loop $fdata $r}
+				{$r[menu]}
+			{/loop}
+			</dd>
+        </dl> 
+		{/if}
+		<dl class="clear">
+        	<dt><strong>类别：</strong></dt>
+            <dd class="AttrBox clear">
+			{loop yp_filters('tid',$modelid) $r}
+				{$r[menu]}
+			{/loop}
+			</dd>
+        </dl> 
+		{php $areaid = intval($_GET['areaid']); $linkage_data = yp_show_linkage(1, 'areaid', $areaid, $modelid);}
+		{if $linkage_data}
+		<dl class="clear">
+        	<dt><strong>地区：</strong></dt>
+            <dd class="AttrBox clear">
+			{loop $linkage_data $r}
+				<a href="{$r['url']}">{$r['title']}</a> 
+			{/loop}
+			</dd>
+        </dl> 
+		{/if}
+    </div>
+    <div class="col-left">
+    	<div class="category-main box generic info-content">
+        	<div class="title">
+                <div class="orderby-select mouseover" type="select" heights="23" position="0">
+                	<div class="select">{if $_GET['order']=='1'} <a class="up" >更新时间升序</a>{elseif $_GET['order']=='2'} <a class="down" >更新时间降序</a>{else}<a class="null" >请选择排序方式</a>{/if}</div>
+                    <ul class="selectlist subselect_0" style="display:none;">
+						<li><a class="null" onclick="javascript:void(0);">请选择排序方式</a></li>
+						<li><a class="up" href="{$current_url}&order=1">更新时间升序</a></li>
+                        <li><a class="down" href="{$current_url}&order=2">更新时间降序</a></li>
+					</ul>
+                </div>
+<strong>
+<?php 
+$now_tid = $_GET['tid'];
+switch ($now_tid){
+case '1':
+  echo '供应';
+  break;  
+case '2':
+  echo '求购';
+  break;
+case '3':
+  echo '二手';
+  break;
+case '4':
+  echo '促销';
+  break;
+default:
+  echo '供应';
+} 
+?>信息
+</strong></div>
+            <ul class="info-top">
+            	<li class="pic"></li>
+                <li class="jiage">价格</li>
+                <li class="vip">诚信</li>
+                <li class="info">信息/公司</li>
+            </ul>
+			{php $sql = yp_filters_sql($modelid);$y=1;$lisrorder = array('1'=>'updatetime ASC', 'updatetime DESC');}
+			{php $order = $_GET['order'] ? $listorder[intval($_GET['order'])] : 'updatetime DESC'}
+			{pc:yp action="position" posid="$posid" modelid="$modelid" catid="$catid" order="listorder asc" num="5" expiration="1"}
+			{loop $data $r}
+			 {php $userid = get_memberinfo_buyusername($r['username'], 'userid');$memberinfo = get_companyinfo($userid, 'companyname, publish_total, url');$publish_total = string2array($memberinfo['publish_total']);}
+            <ul class="info-item clear"{if $y==1} style="border-top:none"{/if}>
+				<li class="pic"><div class="img-wrap">
+					<a href="{$r[url]}" title="{$r[title]}"><img src="{$r[thumb]}" title="{$r[title]}"></a></div>
+				</li>
+                <li class="jiage"><strong>&yen;2800</strong></li>
+                <li class="vip">{get_company_rank($r['userid'])}</li>
+                <li class="info">
+                    <h2><a href="{$r[url]}" title="{$r[title]}">{$r[title]}</a></h2>
+                    <p>商家：<a href="{$memberinfo['url']}" target="_blank" class="blue">{$memberinfo['companyname']}</a><br />
+                       更新日期：{date("Y-m-d",$r[updatetime])}
+					</p>
+                </li>	
+			</ul>
+			{php $y++;}
+				{/loop}
+			{/pc}
+			{php $urlrule = yp_makeurlrule();}
+ 			{pc:yp action="lists" where="$sql" modelid="$modelid" order="$order" num="10" urlrule="$urlrule"}
+			{loop $data $r}
+			 {php $memberinfo = get_companyinfo($r['userid'], 'companyname, publish_total, url');$publish_total = string2array($memberinfo['publish_total']);}
+			<ul class="info-item clear"{if $y==1} style="border-top:none"{/if}>
+				<li class="pic"><div class="img-wrap">
+					<a href="{$r[url]}" title="{$r[title]}"><img src="{$r[thumb]}" title="{$r[title]}"></a></div>
+				</li>
+                <li class="jiage"><strong>&yen;2800</strong></li>
+                <li class="vip">{get_company_rank($r['userid'])}</li>
+            	<li class="info">
+                    <h2><a href="{$r[url]}" title="{$r[title]}">{$r[title]}</a></h2>
+                    <p>商家：<a href="{$memberinfo['url']}" target="_blank" class="blue">{$memberinfo['companyname']}</a><br />
+                       更新日期：{date("Y-m-d",$r[updatetime])}
+					</p>
+                </li>
+            </ul>
+			{php $y++;}
+			{/loop}
+			 <div id="pages" class="text-c">{$pages}</div>
+			{/pc}
+         </div>
+    </div>
+    <div class="col-auto">
+    	<div class="box box-tab fillet fillet-blue">
+        	<ul class="tab clear swap-tab cu-li">
+            	<li class="on">推荐商机信息</li>
+                <li>最新商机信息</li>
+            </ul>
+        	<div class="swap-content">
+			{php $buy_type = $this->buy_type;}
+				{pc:yp action="position" posids="$this->global_posid" modelid="$modelid" order="listorder asc" num="10" expiration="1"}
+	            <ul class="list-num">
+				 {loop $data $r}
+		            <li><em{if $n<4} class="n{$n}"{/if}>{$n}</em><a href="{yp_filters_url('tid', array('tid'=>$r['tid'], 'catid'=>$r['catid']), 2, $modelid)}" class="blue" target="_blank">[{$buy_type[$r['tid']]}]</a> <a href="{$r['url']}">{str_cut($r['title'], 30)}</a></li>
+		         {/loop}
+	            </ul>
+				{/pc}
+	        	<ul class="list-num" style="display:none;">
+	             {pc:yp action="lists" modelid="$modelid" order="id DESC" num="10"}
+	         	  {loop $data $r}
+		            <li><em{if $n<4} class="n{$n}"{/if}>{$n}</em><a href="{yp_filters_url('tid', array('tid'=>$r['tid'], 'catid'=>$r['catid']), 2, $modelid)}" class="blue" target="_blank">[{$buy_type[$r['tid']]}]</a> <a href="{$r['url']}">{str_cut($r['title'], 30)}</a></li>
+			      {/loop}
+				 {/pc}
+	            </ul>
+             </div>
+            <span class="o1"></span><span class="o2"></span><span class="o3"></span><span class="o4"></span>
+        </div>
+    	<div class="bk10"></div>
+        <div class="box box-tab fillet fillet-blue">
+        	<ul class="tab clear swap-tab cu-li">
+            	<li class="on">24小时热点商机</li>
+                <li>本周热点商机</li>
+            </ul>
+			<div class="swap-content">
+			{php $buy_type = $this->buy_type;}
+			{pc:yp action="hits" modelid="$modelid" day="1"}
+				<ul class="list-num">
+					{loop $data $r}
+						<li><em{if $n<4} class="n{$n}"{/if}>{$n}</em><a href="{yp_filters_url('tid', array('tid'=>$r['tid'], 'catid'=>$r['catid']), 2, $modelid)}" class="blue" target="_blank">[{$buy_type[$r['tid']]}]</a> <a href="{$r['url']}">{str_cut($r['title'], 30)}</a></li>
+					{/loop}
+				</ul>
+			{/pc}
+            {pc:yp action="hits" modelid="$modelid" order="weekviews DESC"}
+				<ul class="list-num" style="display:none;">
+					{loop $data $r}
+						<li><em{if $n<4} class="n{$n}"{/if}>{$n}</em><a href="{yp_filters_url('tid', array('tid'=>$r['tid'], 'catid'=>$r['catid']), 2, $modelid)}" class="blue" target="_blank">[{$buy_type[$r['tid']]}]</a> <a href="{$r['url']}">{str_cut($r['title'], 30)}</a></li>
+					{/loop}
+				</ul>
+			{/pc}
+			</div>
+            <span class="o1"></span><span class="o2"></span><span class="o3"></span><span class="o4"></span>
+        </div>
+    </div>
+</div>
+{template 'yp', 'footer'}

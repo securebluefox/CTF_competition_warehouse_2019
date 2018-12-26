@@ -1,0 +1,226 @@
+{template 'yp', 'header'}
+<link rel="stylesheet" type="text/css" href="{CSS_PATH}jquery.ad-gallery.css">
+<link href="{CSS_PATH}dianping.css" rel="stylesheet" type="text/css" />
+<!--main-->
+<div class="main clear">
+	<div class="crumbs" style="margin-bottom:0"><a href="{APP_PATH}">首页</a><span> &gt; </span><a href="{get_yp_url()}">企业黄页</a> &gt; <a href="{get_yp_url('model', $modelid)}">产品</a> &gt; <a href="{$CAT['url']}">{$CAT['catname']}</a>  &gt;  {$title}</div>
+    <div class="box show-box">
+    	<h1>{$title}</h1>
+        <div class="content clear">
+			{if $exhibit}
+            <div class="show-box-pic">
+            	<!--slide play-->
+                <div id="gallery" class="ad-gallery"><div class="ad-border"><div class="ad-image-wrapper"></div></div><div class="ad-controls"></div><div class="ad-nav"><div class="ad-thumbs"><ul class="ad-thumb-list">
+				{loop $exhibit $e}
+				<li><a href="{$e['url']}"><img src="{thumb($e['url'], 64, 44)}" ></a></li>
+				{/loop}
+          		</ul></div></div></div>
+                <!--slide end-->
+            </div>
+<script type="text/javascript" src="{JS_PATH}jquery.ad-gallery.js"></script>
+<script type="text/javascript">
+$(function() {
+	  var galleries = $('.ad-gallery').adGallery();
+	  galleries[0].settings.effect = 'fade';
+});
+</script>
+			{/if}
+            <div class="yp-info">
+			{php $memberinfo = get_companyinfo($userid);}
+            	<h3 class="title">商家基本信息</h3>
+                <div class="content">
+                	公司名称：{$memberinfo['companyname']}<br />
+                    网址：{$memberinfo['web_url']}<br />
+                    地址：{$memberinfo['address']}<br />
+					联系人：{$memberinfo['linkman']}<br />
+                    传真：{$memberinfo['fax']}<br />
+                    电话：{$memberinfo['telephone']}
+                    <div class="bk10 hr"></div>
+					{if $setting['isbusiness'] && module_exists('dianping')}
+					{get_pro_dainpingall(id_encode(ROUTE_M."_$catid",$id,$siteid))} 
+					{/if}
+					<p class="yp-btn"><a href="{compute_company_url('guestbook', array('userid'=>$memberinfo['userid']))}">给我留言</a><a href="{$memberinfo['url']}" target="_blank">进入商铺</a></p>
+                </div>
+                <div class="bottom"></div>
+            </div>
+            <div class="col-auto show-info">
+			{php $type_arr = get_parent_url($modelid, $catid);}
+            	<h2><span>商家：</span><a href="{$memberinfo['url']}" class="blue" target="_blank">{$memberinfo['companyname']}</a></h2>
+                <p><span>类别：</span><a href="{$CAT['url']}">{$type_arr['title']}</a><br />
+                   <span>品牌：</span>{$brand}<br />
+                   <span>型号：</span>{$standard}<br />
+                   <span>产地：</span>{$yieldly}<br />
+                   <span>价格：</span>{$price}元 {if $units}/ {$units} {/if}<br />
+                   <span>更新：</span>{$updatetime}
+				   {loop $additional_base $ab $af}<br /> <span>{$additional_fields[$ab]['name']}：</span>{$af}{/loop}</p>
+               {if $setting['isbusiness']} <p class="btns"><a href="javascript:void(0);" onclick="add_buycar(this, '{$id}', '{$modelid}', '1')" class="buy"><span>立即购买</span></a><a href="javascript:void(0);" onclick="add_buycar(this, '{$id}', '{$modelid}')" class="buycar"><span>加入购物车</span></a></p>{/if}
+            </div>
+        </div>
+    </div>
+    <div class="bk10"></div>
+    <div class="col-left">
+		<table width="100%" class="products-para" border="0">
+           <caption>基本参数</caption>
+		   {loop $additional_general $ag $avalue}
+          {if $n%2==1}<tr>{/if}
+            <th width="15%">{$additional_fields[$ag]['name']}：</th>
+            <td width="35%">&nbsp;{$avalue}</td>
+          {if $n%2==0}</tr>{/if}
+		  {/loop}
+        </table>
+        <div class="bk10"></div>
+        <div class="box generic products-desc">
+        	<div class="title"><strong>产品描述</strong></div>
+            <div class="desc">{$content}</div>
+        </div>
+        <div class="bk10"></div>
+        <div class="box generic">
+        	<div class="title"><strong>商家推荐产品</strong></div>
+			{php $sql="`userid`='$userid' AND `status`=99 AND `elite`=1";}
+			{pc:yp action="lists" where="$sql" modelid="$modelid" num="10"}
+            <ul class="content news-photo picbig clear">
+				{loop $data $r}
+                <li>
+                    <div class="img-wrap">
+                        <a href="{$r['url']}" target="_blank"><img style="height: 85px; width: 62.7517px;" src="{$r['thumb']}" title="{$r['title']}"></a>
+                    </div>
+                    <a href="{$r['url']}" target="_blank" title="{$r['title']}">{str_cut($r['title'], 20)}</a>
+                </li>
+				{/loop}
+           </ul>
+		   {/pc}
+        </div>
+        <div class="bk10"></div>
+		{if $setting['isbusiness']}
+        <div class="box generic web-asked">
+        	<div class="title"><strong>买家评价</strong></div>
+		<div class="dianping-list">
+<script type="text/javascript">
+function SetCwinHeight(){
+	var iframeid=document.getElementById("dianping_iframeid"); //iframe id
+	if (document.getElementById){
+		if (iframeid && !window.opera){
+			if (iframeid.contentDocument && iframeid.contentDocument.body.offsetHeight){
+				iframeid.height = iframeid.contentDocument.body.offsetHeight;
+			}else if(iframeid.Document && iframeid.Document.body.scrollHeight){
+				iframeid.height = iframeid.Document.body.scrollHeight;
+			}
+		}
+	}
+}
+</script> 
+ 
+ {if module_exists('dianping') && $dianping_type!=''}
+ 		<iframe  onload="Javascript:SetCwinHeight()" src="{APP_PATH}index.php?m=dianping&c=index&a=init&dianpingid={id_encode(ROUTE_M."_$catid",$id,$siteid)}&iframe=1&dianping_type={$dianping_type}&module={ROUTE_M}&modelid={$modelid}&is_checkuserid=1&contentid={$id}" width="100%" height="1" id="dianping_iframeid" frameborder="0" scrolling="no"></iframe>
+ {/if}
+		</div>
+		
+        </div>
+		{/if}
+    </div>
+    <div class="col-auto">
+    	<div class="box box-tab fillet fillet-blue">
+        	<ul class="tab clear swap-tab cu-li">
+            	<li class="on">相关产品</li>
+                <li>最新产品</li>
+            </ul>
+        	<div class="swap-content">
+				{pc:yp action="relation" id="$id" modelid="$modelid" num="10" keywords="$str_keywords"}
+	            <ul class="list-num">
+				 {loop $data $r}
+		            <li><em{if $n<4} class="n{$n}"{/if}>{$n}</em><a href="{$r['url']}">{str_cut($r['title'],34,false)}</a></li>
+		         {/loop}
+	            </ul>
+                {/pc}
+                {pc:yp action="lists" modelid="$modelid" order="id DESC" num="10"}
+	        	<ul class="list-num" style="display:none;">
+	         	  {loop $data $r}
+		            <li><em{if $n<4} class="n{$n}"{/if}>{$n}</em><a href="{$r['url']}">{str_cut($r['title'], 34,false)}</a></li>
+			      {/loop}
+	             </ul>
+				 {/pc}
+             </div>
+            <span class="o1"></span><span class="o2"></span><span class="o3"></span><span class="o4"></span>
+        </div>
+    	<div class="bk10"></div>
+        <div class="box box-tab fillet fillet-blue">
+        	<ul class="tab clear swap-tab cu-li">
+            	<li class="on">24小时热点商机</li>
+                <li>周热点商机</li>
+            </ul>
+			<div class="swap-content">
+        	{php $buy_type = $this->buy_type;}
+			{pc:yp action="hits" modelid="$this->setting_models[76]" day="1"}
+         	<ul class="list-num">
+				{loop $data $r}
+					<li><em{if $n<4} class="n{$n}"{/if}>{$n}</em><a href="{yp_filters_url('tid', array('tid'=>$r['tid'], 'catid'=>$r['catid']), 2, $this->setting_models[76])}" class="blue" target="_blank">[{$buy_type[$r['tid']]}]</a> <a href="{$r['url']}">{str_cut($r['title'], 30)}</a></li>
+				{/loop}
+            </ul>
+			{/pc}
+            {pc:yp action="hits" modelid="$this->setting_models[76]" order="weekviews DESC"}
+            <ul class="list-num" style="display:none;">
+				{loop $data $r}
+					<li><em{if $n<4} class="n{$n}"{/if}>{$n}</em><a href="{yp_filters_url('tid', array('tid'=>$r['tid'], 'catid'=>$r['catid']), 2, $this->setting_models[76])}" class="blue" target="_blank">[{$buy_type[$r['tid']]}]</a> <a href="{$r['url']}">{str_cut($r['title'], 30)}</a></li>
+				{/loop}
+            </ul>
+			{/pc}
+			</div>
+            <span class="o1"></span><span class="o2"></span><span class="o3"></span><span class="o4"></span>
+        </div>
+    </div><div class="bk"></div>
+</div>
+<div class="show-buycar" id="show-buycar">
+	<div class="title"><a href="javascript:;" onclick="$('.show-buycar').hide();" class="close">关闭</a><strong>提示</strong></div>
+    <div class="content">
+    	<h2>已成功添加到购物车！</h2>
+        <p>购物车里已有 <font color="#FF0000" class="fb" id="product_num">0</font> 件商品。总价 <font color="#FF0000" class="fb f20" id="product_fee">0.00</font> 元。</p>
+        <p class="bottom"><a href="{APP_PATH}index.php?m=yp&c=index&a=buycar_list" class="sbtn ib">去购物车结算</a></p>
+    </div>
+</div>
+<script type="text/javascript">
+$(function() {
+	  $('.products-desc .desc img').LoadImage(true, 640, 660,'{IMG_PATH}s_nopic.gif');
+});
+function add_buycar(obj, id, modelid, buy) {
+	var os = $(obj);
+	$.get('{APP_PATH}index.php', {m:'yp', c:'index', a:'buycar', id:id, modelid:modelid, random:Math.random()}, function(data){
+		if (data=='1') {
+			alert('此商品不存在或已下架！');
+		} else if (data=='2') {
+			alert('不可购买自己的商品！');
+		} else if(data=='3') {
+			if (buy) {
+				window.location.href="{APP_PATH}index.php?m=yp&c=index&a=buycar_list";
+			} else {
+				alert('商品已经添加到购物车！');
+			}
+		} else {
+			if (buy) {
+				window.location.href="{APP_PATH}index.php?m=yp&c=index&a=buycar_list";
+			} else {
+				var obj = eval('(' + data + ')');
+				$('#product_num').html(obj.num);
+				$('#product_fee').html(obj.total);
+				var showBuycar=$(".show-buycar"),offset =os.offset();
+				showBuycar.css({"position":"absolute","z-index":"100",left:offset.left,top:offset.top+35});
+				if(showBuycar.css("display")=="none"){
+					showBuycar.show();
+				}else{
+					showBuycar.hide();
+				}
+				$('#buy_show').show();
+				$('#buy_show_num').html(obj.num);
+			}
+		}
+	});
+}
+
+$.get('{APP_PATH}index.php', {m:'yp', c:'index', a:'get_buycar', random:Math.random()},function(data){
+	var obj = eval('(' + data + ')');
+	if (obj.num) {
+		$('#buy_show').show();
+		$('#buy_show_num').html(obj.num);
+	}
+});
+</script>
+{template 'yp', 'footer'}
