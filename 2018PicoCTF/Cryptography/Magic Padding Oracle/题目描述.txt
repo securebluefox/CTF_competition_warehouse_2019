@@ -1,0 +1,2 @@
+Can you help us retreive the flag from this crypto service? Connect with nc 2018shell2.picoctf.com 45008. We were able to recover some Source Code.
+Paddding Oracle Attack£¨https://blog.skullsecurity.org/2013/padding-oracle-attacks-in-depth£©

@@ -1,0 +1,2 @@
+James Brahm, James Bond's less-franchised cousin, has left his secure communication with HQ running, but we couldn't find a way to steal his agent identification code. Can you? Conect with nc 2018shell2.picoctf.com 33893. Source.
+What mode is being used?
