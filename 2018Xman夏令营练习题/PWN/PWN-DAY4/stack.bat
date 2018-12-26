@@ -1,0 +1,1 @@
+AppJailLauncher.exe /timeout:600 /port:1234 Stack.exe /nojail
