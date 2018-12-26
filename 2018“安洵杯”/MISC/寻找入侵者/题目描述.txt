@@ -1,0 +1,8 @@
+蠢得发慌的运维一觉睡起来发现网站没了，你能帮他恢复网站并且找到入侵者嘛，他会给你一个flag作为报酬。
+
+题目链接：https://hub.docker.com/r/34101385/find/
+
+tip-1：进入容器后先执行./root/run.sh哦哦哦
+tip0：用cp命令把web目录下的bak.zip和某些东西提出来，然后已知明文攻击，然后根据提示继续。
+tip1：http://www.runoob.com/docker/docker-command-manual.html
+tip2:广告：服务器有后门，为什么不试试神奇的软件rkhunter呢

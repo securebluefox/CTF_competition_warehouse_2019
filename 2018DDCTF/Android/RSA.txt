@@ -1,0 +1,6 @@
+RSA
+100pt
+
+输入一个（可能为任意长度）的key，使app返回correct。本题需要提交DDCTF-{key}到网页上（注意格式不一样）。出现多解的情况请把符合[0-9a-z]+格式的key提交。
+
+题目apk已更新：现在app内只允许FLAG作为唯一解correct，原有FLAG不变。

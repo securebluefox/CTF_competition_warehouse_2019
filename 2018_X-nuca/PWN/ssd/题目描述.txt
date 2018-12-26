@@ -1,0 +1,7 @@
+I have developed a ssd in qemu...
+
+But ssd stands for Silly-Store-Device, not Solid-state drive.
+
+Hope it can work well.
+
+Hint: Is your request too frequent?

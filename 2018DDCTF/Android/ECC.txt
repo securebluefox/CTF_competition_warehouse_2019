@@ -1,0 +1,4 @@
+ECC
+180pt
+
+Android第4题：Elliptic Curve Cryptography(ECC)在信息安全、加密破解和数字货币中应用广泛。请阅读此网页，（ https://arstechnica.com/information-technology/2013/10/a-relatively-easy-to-understand-primer-on-elliptic-curve-cryptography/2/ ），根据文中的dot算术规则根据乘积(public key)破解出multiplier乘数 （private key）输入到app里。提示：答案是一个10位以内的正整数，例如提交的答案为DDCTF{012345}。

@@ -1,0 +1,4 @@
+keepassx
+320pt
+
+请在这个 keepassx 的 coredump 中，找出 Title 为 flag 的密码信息。flag 格式为 DDCTF{UserName:Password}

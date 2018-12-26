@@ -1,0 +1,4 @@
+Diffie-Hellman
+150pt
+
+作为一个Man In the Middle，破解Alice和Bob用Diffie–Hellman key exchange 方法传递信息的通道。输入一个最小长度的KEY（KEY的长度必须小到不存在比它长度更小的KEY）, 使app返回correct。DDCTF{ddctf-android2-KEY} 是flag。
