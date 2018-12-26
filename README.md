@@ -8,4 +8,5 @@
 如果有未收录的题目欢迎合作~可将题目发送至 hebtuerror404@vip.qq.com \~灰常感谢\~φ(>ω<*)   
 传送门：  
 [安恒杯系列比赛](https://github.com/hebtuerror404/Anheng_cup_month)  
+[河北师范大学校赛](https://github.com/hebtuerror404/HEBTUCTF) 
 
