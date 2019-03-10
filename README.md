@@ -10,6 +10,8 @@
 ```
 *.zip
 *.7z
+*.tar.gz
+*.tar.xz
 ```
 传送门：  
 [安恒杯系列比赛](https://github.com/hebtuerror404/Anheng_cup_month)  
