@@ -1,0 +1,5 @@
+Some security problems are black and white: a key is either compromised or it isn't.
+
+Location: https://storage.googleapis.com/bsides-sf-ctf-2019-large-artifacts/keytree_nodes.tar.xz
+
+(Note: Flag is different from usual format)

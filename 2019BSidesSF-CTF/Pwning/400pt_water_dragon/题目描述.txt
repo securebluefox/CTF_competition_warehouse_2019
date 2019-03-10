@@ -1,0 +1,3 @@
+This level brings back the fun of the old wu-ftpd daemon.
+
+Location - water-dragon-ce4d3620.challenges.bsidessf.net:1901

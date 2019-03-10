@@ -1,0 +1,3 @@
+SSE allows you to get flags even faster!
+
+nc fastflag-28659598.challenges.bsidessf.net 9999
