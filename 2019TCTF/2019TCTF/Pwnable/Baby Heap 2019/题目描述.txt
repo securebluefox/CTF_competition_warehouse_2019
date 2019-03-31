@@ -1,0 +1,5 @@
+Let's refresh our ptmalloc exploit techniques in 2019!
+
+babyheap
+
+111.186.63.20:10001

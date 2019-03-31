@@ -1,0 +1,6 @@
+Help me to find lost flag. 
+
+link
+
+nc 111.186.63.16 20193
+

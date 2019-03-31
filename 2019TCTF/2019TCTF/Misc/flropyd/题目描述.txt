@@ -1,0 +1,12 @@
+People always say that rop is turing complete, show me by implementing the Floyd-Warshall algorithm
+
+nc 111.186.63.203 6666
+
+flropyd
+
+system: ubuntu-18.04
+
+update1: you can download libc here£¨https://packages.ubuntu.com/bionic/amd64/libc6/download£©
+
+update2: md5(libc.so.6) == 50390b2ae8aaa73c47745040f54e602f
+
