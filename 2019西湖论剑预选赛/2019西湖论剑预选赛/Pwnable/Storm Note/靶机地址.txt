@@ -1,0 +1,2 @@
+domain:ctf2.linkedbyx.com
+port:10924

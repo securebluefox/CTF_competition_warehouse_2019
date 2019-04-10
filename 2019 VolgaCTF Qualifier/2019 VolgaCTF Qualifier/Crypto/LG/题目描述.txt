@@ -1,0 +1,7 @@
+WazzUP! My homie bought a new UltraSmartTV, but he forgot a secret key from an admin panel. After a few attempts to crack this "smart" IoT device it started to generate new passwords on its own, and now we are stuck.
+
+Can you help?
+
+nc lg.q.2019.volgactf.ru 8801
+
+Second host: nc 95.213.235.103 8801

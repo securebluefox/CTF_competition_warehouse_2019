@@ -1,0 +1,5 @@
+Hi! It's a task, but not a task.
+
+All you need to do is to make a short video with you saying in Russian "VolgaCTF - §ï§ä§à §Õ§â§å§Ø§Ò§Ñ!". Send us£¨invite@volgactf.ru£© a link to the video and wait for a flag in your inbox.
+
+By sending a link to your video, you agree that we may use it to create a new VolgaCTF-promo.
