@@ -1,0 +1,3 @@
+The supermarket bought a new printer last night. I hacked into their computer and captured the USB traffic on it. Could you help me steal the secret?
+
+Flag format: flag{0-9a-z_} (Convert uppercase to lowercase)

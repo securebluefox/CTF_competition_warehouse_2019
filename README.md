@@ -28,6 +28,8 @@
 *.tar.xz
 ```
 传送门：  
-[安恒杯系列比赛](https://github.com/hebtuerror404/Anheng_cup_month)  
-[河北师范大学校赛](https://github.com/hebtuerror404/HEBTUCTF) 
+
+[安恒杯系列比赛(AnhengCTF)](https://github.com/hebtuerror404/Anheng_cup_month)  
+
+[河北师范大学网络安全竞赛(HECTF)](https://github.com/HECTF) 
 

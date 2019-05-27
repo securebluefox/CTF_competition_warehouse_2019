@@ -1,0 +1,5 @@
+flag格式：aurora{YOUR_INPUT}
+
+最低分值：400
+备用下载地址：
+http://47.107.33.15:23333/Reverse/anti_377a311892a3a8ac5f3b53b4a962e6f2.zip

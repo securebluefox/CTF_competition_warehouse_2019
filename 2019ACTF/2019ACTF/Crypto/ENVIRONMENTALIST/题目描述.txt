@@ -1,0 +1,3 @@
+flag格式为AURORA{.*}
+
+备用下载地址：http://47.107.33.15:23333/Crypto/Environmentalist_46955222DC24274C73281AF1001FAA06.zip

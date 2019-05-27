@@ -1,0 +1,2 @@
+49.4.122.46 1337
+end with sending a single line of 'EOF'

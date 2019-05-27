@@ -1,0 +1,3 @@
+new libc, new life.
+
+$ nc 34.92.96.238 10001

@@ -1,0 +1,3 @@
+you can call it young, you can call it master, but never call it baby!
+
+$ nc 34.92.248.154 10000

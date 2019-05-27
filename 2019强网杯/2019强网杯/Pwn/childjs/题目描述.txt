@@ -1,0 +1,2 @@
+117.78.48.69 1337
+end with sending a single line of 'EOF'

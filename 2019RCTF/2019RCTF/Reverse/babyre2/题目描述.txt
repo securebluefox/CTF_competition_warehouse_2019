@@ -1,0 +1,5 @@
+yet another baby reverse for u...
+
+nc 139.180.215.222 20000
+
+nc 123.206.174.203 20000
