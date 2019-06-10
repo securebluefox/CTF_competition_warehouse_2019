@@ -1,1 +1,0 @@
-请花点时间找到正确的key，key格式为：DDCTF{XXX}

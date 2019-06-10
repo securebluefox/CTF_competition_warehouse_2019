@@ -1,3 +1,0 @@
-Can you pwn it?
-
-nc slowfire-74fa96b8.challenges.bsidessf.net 4141

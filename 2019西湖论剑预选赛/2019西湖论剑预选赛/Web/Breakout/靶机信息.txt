@@ -1,2 +1,0 @@
-domain:ctf3.linkedbyx.com
-port:11231

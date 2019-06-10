@@ -1,3 +1,0 @@
-It's just a baby...
-
-wrap your answer in rctf{}

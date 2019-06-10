@@ -1,1 +1,0 @@
-DROP TABLE IF EXISTS `phpcms_dianping_data`;

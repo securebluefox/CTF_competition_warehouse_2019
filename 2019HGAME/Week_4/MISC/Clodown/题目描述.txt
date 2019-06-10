@@ -1,4 +1,0 @@
-提交xyf密码的sha256，自己补上格式hgmae{} 
-下面两个链接都可以下载。
-1. https://mega.nz/#!10IwxaQJ!-9RYPKrsOUTVmi3zGJZdaAa_MYU0VzIGdkC1MfOtwBw 
-2.http://pmsw8b6r5.bkt.clouddn.com//b39249ef00f7a88a313f3e24e6f37012/memory.zip

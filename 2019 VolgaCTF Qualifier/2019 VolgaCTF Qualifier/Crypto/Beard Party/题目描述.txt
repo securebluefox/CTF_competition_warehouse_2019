@@ -1,3 +1,0 @@
-You have some cipher and encrypted flag. Enjoy...
-
-nc beard-party.q.2019.volgactf.ru 7777

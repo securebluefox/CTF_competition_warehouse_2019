@@ -1,1 +1,0 @@
-Here are some magic codes which can hide information in an ordinary picture, can you extract the hidden image in the provided picture?

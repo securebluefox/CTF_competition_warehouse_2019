@@ -1,2 +1,0 @@
-Yesterday, a muggle had sneaked into Hogwarts. But he was discovered by Professor Snape immediately. As a punishment for his unauthorized access, Prof. Snape had cast a spell "Say-Muggle-Code" a.k.a. SMC on him. The spell is very powerful and it would make him saying "muggle!" constantly. The only solution to it is to find out the flag, can you crack this SMC spell and help the poor muggle?
-建议先做“Math 简单”熟悉一下 C++

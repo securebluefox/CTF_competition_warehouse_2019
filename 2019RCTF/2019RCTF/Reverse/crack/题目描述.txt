@@ -1,3 +1,0 @@
-Find me in the picture, 0 && 1 is your key~(PS:MAX).
-
-please wrap your answer in rctf{}
