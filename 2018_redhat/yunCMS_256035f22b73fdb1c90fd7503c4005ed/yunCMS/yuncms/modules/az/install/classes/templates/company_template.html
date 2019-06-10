@@ -1,0 +1,34 @@
+{template 'yp', 'member_header'}
+<script type="text/javascript">
+<!--
+	var charset = '{CHARSET}';
+	var uploadurl = '{php echo pc_base::load_config('system','upload_url')}';
+//-->
+</script>
+<div id="memberArea">
+	{template 'yp', 'member_left'}
+	<div class="col-auto">
+		<div class="col-1 clear">
+		  <h5 class="title">模板选择</h5>
+			<div class="content">
+			<form method="post" action="" id="myform" name="myform">
+            {loop $companytplnames $tpl}
+            	<div class="temp-list"{if $n%3==0} style="margin-right:0"{/if}>
+                	<a href="{APP_PATH}index.php?m=yp&c=business&a=preview_template&tplname={$tpl['dir']}" target="_blank" class="img"><img src="{thumb($tpl['thumb'], 98,98)}" width="98" height="98" title="预览"></a>
+                    <ul>
+                    	<li>{$tpl['title']} {if $memberinfo['tplname']==$tpl['dir']} <font color="red">√</font>{/if}</li>
+                        <li>作者：站点管理员</li>
+                        <li><a href="{APP_PATH}index.php?m=yp&c=business&a=preview_template&tplname={$tpl['dir']}
+" target="_blank">预览</a> | <a href="{APP_PATH}index.php?m=yp&c=business&a=set_default_tpl&tplname={$tpl['dir']}&name={$tpl['title']}">启用</a></li>
+                    </ul>
+                </div>
+            {/loop}
+			</form>
+			</div>
+			<span class="o1"></span><span class="o2"></span><span class="o3"></span><span class="o4"></span>
+		</div>
+	</div>
+</div>
+<div class="clear"></div>
+
+{template 'member', 'footer'}

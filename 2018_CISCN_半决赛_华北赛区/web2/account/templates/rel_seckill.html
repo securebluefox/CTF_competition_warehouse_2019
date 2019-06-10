@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="jumbotron">
+       <h1>秒杀活动</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            <input class="hidden" name="id" value="1">
+            {{ question }}<br />
+            请输入符合要求的6位字符串
+            <input name="result" value="">
+            <button class="btn btn-danger" type="submit">秒杀</button>
+        </form>
+    </div>
+{% endblock %}

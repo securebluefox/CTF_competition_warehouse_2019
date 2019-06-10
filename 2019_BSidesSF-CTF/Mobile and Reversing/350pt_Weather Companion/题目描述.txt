@@ -1,0 +1,1 @@
+A simple weather application that fetches and displays the weather. What hides within?

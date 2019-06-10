@@ -1,0 +1,6 @@
+ans_pos_x_1 = 332
+ans_pos_y_1 = 185
+ans_width_x_1 = 88
+ans_height_y_1 = 143
+
+vtt_ques = 请点击图中的数字“6”

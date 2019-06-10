@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content_block %}
+        <script>
+window.onload = function () {
+var c = document.getElementById("vtt_captcha");
+var ctx = c.getContext("2d");
+var img = new Image();
+img.onload = function () {
+ctx.drawImage(img, 0, 0);
+};
+img.src = '{{ cap.jpg }}';
+c.onmousedown = function (event) {
+var rect = this.getBoundingClientRect();
+var x = (event.x - rect.left) * (this.width / rect.width);
+var y = (event.y - rect.top) * (this.height / rect.height);
+ctx = c.getContext("2d");
+ctx.beginPath();
+ctx.arc(x,y,10,0,360,false);
+ctx.fillStyle="red";
+ctx.fill();
+ctx.closePath();
+document.getElementById('captcha_x').value = x;
+document.getElementById('captcha_y').value = y;
+}
+};
+</script>
+    <div class="content">
+    <div class="container">
+        <div class="content-top">
+            {% for message in messages %}
+              <div class="ui positive message">
+              <div class="alert alert-success alert-dismissable">
+                {{ message }}
+              </div>
+              </div>
+              {% endfor %}
+            <h1>重置密码</h1>
+            <div class="content-top1 col-md-6 login-right ">
+           <form action="{% url 'resetpass' %}" method="post">
+                    {% csrf_token %}
+					<span>邮箱</span>
+					<input id="id_mail" maxlength="50" name="mail" placeholder="邮箱" required="required" type="text" />
+<div>
+<label>验证码 ( {{ cap.question }} )：</label><br/>
+<canvas id="vtt_captcha" width="680" height="460" rel="{{ cap.uuid }}"></canvas>
+    <input type="hidden" id="" name="picid" value="{{ cap.uuid }}">
+<input type="hidden" id="captcha_x" name="captcha_x" value="">
+<input type="hidden" id="captcha_y" name="captcha_y" value="">
+</div>
+					<div class="word-in">
+                        <input type="hidden" name="source_url" value="{{ request.META.HTTP_REFERER }}">
+				 		<input type="submit" value="重置密码">
+				  	</div>
+			    </form>
+            </div>
+    </div>
+    </div>
+    {% include 'pagination.html' %}
+    </div>
+    </div>
+{% endblock %}

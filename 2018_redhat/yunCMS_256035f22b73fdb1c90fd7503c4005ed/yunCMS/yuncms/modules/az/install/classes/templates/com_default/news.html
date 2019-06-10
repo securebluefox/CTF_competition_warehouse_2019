@@ -1,0 +1,25 @@
+{php $tpl_dir = $this->default_tpl;}
+{template $tpl_dir, 'header'}
+<div class="main clear">
+	<div class="col-auto">
+      {template $tpl_dir, 'block_contact'}
+   	  <h2 class="crumbs">新闻中心<span>/NEWS</span></h2>
+      <div class="sub-nav">分类：{if $catid}<a href="{compute_company_url('model', array('catid'=>0))}">{/if}全部{if $catid}</a>{/if}{loop $catid_arr $cid $c}
+	{if $catid!=$cid}<a href="{compute_company_url('model', array('catid'=>$cid))}">{/if}
+	{$categorys[$cid]['catname']}({$c['num']})
+	{if $catid!=$cid}</a>{/if} 
+	{/loop}</div>
+	  {php $urlrule = yp_makeurlrule();}
+		{pc:yp action="lists" userid="$array[userid]" modelid="$modelid" catid="$catid" num="20" order="inputtime desc" page="$page" urlrule="$urlrule"}
+		<ul class="news-list picbig">
+		{loop $data $r}
+			<li>{if $r[thumb]}<div class="lf img-wrap"><a href="{compute_company_url('show', array('catid'=>$r['catid'], 'id'=>$r['id']))}" target="_blank" title="{$r[title]}"><img src="{$r[thumb]}"/></a></div>{/if}<h2><a href="{compute_company_url('show', array('catid'=>$r['catid'], 'id'=>$r['id']))}" target="_blank">{$r[title]}</a><span>{date("Y-m-d H:i:s",$r[inputtime])}</span></h2>
+			<p>{str_cut($r[description],200,'....')}</p>
+			</li>
+		{/loop}
+		</ul>
+		<div id="pages" class="text-c">{$pages}</div>
+		{/pc}
+	</div>
+</div>
+{template $tpl_dir, 'footer'}

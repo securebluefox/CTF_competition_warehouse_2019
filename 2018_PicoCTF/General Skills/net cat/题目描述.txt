@@ -1,0 +1,1 @@
+Using netcat (nc) will be a necessity throughout your adventure. Can you connect to 2018shell2.picoctf.com at port 49387 to get the flag?

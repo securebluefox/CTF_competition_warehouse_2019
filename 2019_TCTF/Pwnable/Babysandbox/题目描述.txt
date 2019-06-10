@@ -1,0 +1,6 @@
+nc 111.186.63.206 19999
+
+PS: Please use ./readflag to read flag
+
+babysandbox
+

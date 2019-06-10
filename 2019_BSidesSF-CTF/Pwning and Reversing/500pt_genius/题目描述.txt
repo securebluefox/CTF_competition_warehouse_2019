@@ -1,0 +1,3 @@
+Using your 80s gamer skills, and maybe some help from a Genius friend, can you read /home/ctf/flag.txt?
+
+nc genius-0a835449.challenges.bsidessf.net 1338

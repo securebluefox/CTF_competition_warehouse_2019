@@ -1,0 +1,3 @@
+本比赛的文件大小已超过100M，无法上传到Github，请移步百度网盘下载~
+网盘分享链接请参看仓库的README.md
+https://github.com/hebtuerror404/CTF_competition_warehouse/blob/master/README.md

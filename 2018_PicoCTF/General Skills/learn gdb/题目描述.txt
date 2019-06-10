@@ -1,0 +1,5 @@
+Using a debugging tool will be extremely useful on your missions. Can you run this program in gdb and find the flag? You can find the file in /problems/learn-gdb_3_f1f262d9d48b9ff39efc3bc092ea9d7b on the shell server.
+Try setting breakpoints in gdb
+Try and find a point in the program after the flag has been read into memory to break on
+Where is the flag being written in memory?
+

@@ -1,0 +1,2 @@
+0x5d1beefd4de611caff204e1a318039324575599a@ropsten，请使用自己队伍的token获取flag，否则flag无效
+163，qq邮箱可能存在接受不到flag的状况，请尽量使用gmail等邮箱。

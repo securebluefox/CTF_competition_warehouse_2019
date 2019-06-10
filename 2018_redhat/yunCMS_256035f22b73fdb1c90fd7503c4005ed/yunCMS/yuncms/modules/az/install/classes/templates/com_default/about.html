@@ -1,0 +1,12 @@
+{php $tpl_dir = $this->default_tpl;}
+{template $tpl_dir, 'header'}
+<div class="main clear">
+  <div class="col-auto">
+  	{template 'yp/com_default', 'block_contact'}
+   	  <h2 class="crumbs">公司介绍<span>/ABOUTUS</span></h2>
+      <div class="about">
+      	{$array[introduce]}
+   	  </div>
+    </div>
+</div>
+{template 'yp/com_default', 'footer'}

@@ -1,0 +1,2 @@
+A forgetful memo server.
+1.fast bin 2.无法直接getshell

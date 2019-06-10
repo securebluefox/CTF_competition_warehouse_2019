@@ -1,0 +1,2 @@
+domain:ctf1.linkedbyx.com
+port:10006

@@ -1,0 +1,7 @@
+Yes it's SourceGuardian!
+
+Download loaders here: https://www.sourceguardian.com/loaders.html
+
+You can hack into Zend Engine to solve this challenge, ref: https://xz.aliyun.com/t/4906#toc-10 (Chinese)
+
+Try to dump opcode

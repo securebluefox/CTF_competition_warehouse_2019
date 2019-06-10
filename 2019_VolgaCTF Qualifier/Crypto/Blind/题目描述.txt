@@ -1,0 +1,5 @@
+Pull the flag...if you can.
+
+nc blind.q.2019.volgactf.ru 7070
+
+server.py

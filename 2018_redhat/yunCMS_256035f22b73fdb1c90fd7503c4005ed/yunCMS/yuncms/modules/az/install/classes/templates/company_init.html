@@ -1,0 +1,60 @@
+{template 'yp', 'member_header'}
+<script type="text/javascript">
+<!--
+	var charset = '{CHARSET}';
+	var uploadurl = '{php echo pc_base::load_config('system','upload_url')}';
+//-->
+</script>
+<link href="{CSS_PATH}dialog.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="{JS_PATH}dialog.js"></script>
+<div id="memberArea">
+	{template 'yp', 'member_left'}
+	<div class="col-auto">
+		<div class="col-1 ">
+        	<h6 class="title">企业资料</h6>
+        	<div class="content">
+            	<div class="col-1 member-info">
+                    <div class="content">
+                        <div class="col-left himg">
+                            <a href="{APP_PATH}index.php?m=yp&c=business&a=company&action=logo&t=3" title="编辑企业Logo"><img onerror="this.src='{IMG_PATH}yp/logobg.png'" src="{$memberinfo['logo']}" height="60" ></a>
+                        </div>
+                        <div class="col-auto">
+                            <h5>{$memberinfo['companyname']}（{$memberinfo['username']}）</h5>
+                            <p class="blue">
+                            会员类型：{$groups[$groupid]['name']}，
+                            账户余额：<font style="color:#F00; font-size:22px;font-family:Georgia,Arial; font-weight:700">{$memberinfo['amount']}</font> 元，
+                           {if $setting['isbusiness']} 信用等级：{get_company_rank($memberinfo['userid'])} {else} 积分点数：<font style="color:#F00; font-size:12px;font-family:Georgia,Arial; font-weight:700">0</font> 点{/if}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bk10"></div>
+                <table width="100%" class="products-para" border="0">
+                   <caption>企业增值服务</caption>
+                   <thead>
+                  		<tr>
+                            <th>会员组\服务范围</th>
+                            <td>发布无需审核</td>
+							{loop $yp_models $m}
+							<td>{$m['name']}</td>
+							{/loop}
+                          </tr>
+                   </thead>
+				   {loop $groups $g}
+				   {if !in_array($g['groupid'], array(1, 7, 8))}
+                  <tr class="func-btn">
+                    <th>{$g['name']}</th>
+                    <td align="center">{if $setting['priv'][$g['groupid']]['allowpostverify']}<font color="red">√</font>{else}<font color="#0066FF">×</font>{/if}</td>
+					{loop $yp_models $m}
+					<td>{if $setting['priv'][$g['groupid']][$m['modelid']]}允许发布{else}无权发布{/if}</td>
+                    {/loop}
+                  </tr>
+				  {/if}
+				  {/loop}
+                </table>
+            </div>
+			<span class="o1"></span><span class="o2"></span><span class="o3"></span><span class="o4"></span>
+		</div>
+	</div>
+</div>
+<div class="clear"></div>
+{template 'member', 'footer'}

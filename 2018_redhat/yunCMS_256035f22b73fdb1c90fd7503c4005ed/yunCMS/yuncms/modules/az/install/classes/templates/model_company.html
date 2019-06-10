@@ -1,0 +1,82 @@
+{template 'yp', 'header'}
+<div class="main clear">
+    <div class="col-left">
+    	<div class="category-main box generic">
+        	<div class="title"><strong>企业库分类</strong></div>
+        	
+            <div class="cat-content">
+           {loop $company_fenlei $r}{if $r[parentid]=='0'}<div class="cat-item ib">
+                    <h4><a href="{$r['url']}">{$r['catname']}</a></h4>
+                    <p>		{php $arr_parentid = yp_subcat($r['catid'], $modelid);}
+ 							{loop $arr_parentid $k}
+							<a title="{$k['catname']}" href="{$k['url']}" target="_blank">{$k['catname']}</a>
+							{/loop}
+							</p></div>{/if}{/loop}
+			</div>
+			
+			</div>
+    </div>
+    <div class="col-auto">
+    	<div class="box box-tab fillet fillet-blue">
+        	<ul class="tab clear swap-tab cu-li">
+            	<li class="on">推荐商家</li>
+                <li>最新加盟</li>
+            </ul>
+            
+        	<div class="swap-content">
+         	<ul class="list-num">
+            	{pc:yp action="get_company" elite="1" num="8" order="regtime DESC" cache="0"}
+        		{php $s=1;}
+        		{loop $data $i}
+        		<li><em {if $s<4}class="n{$s}"{/if} >{$s}</em><a href="{APP_PATH}index.php?m=yp&c=com_index&userid={$i[userid]}" target="_blank">{$i['companyname']}</a></li>
+        		{php $s++;}
+        		{/loop}
+        		{/pc} 
+            </ul>
+            
+            <ul class="list-num" style="display:none;">
+            	{pc:yp action="get_company" num="8" order="regtime DESC" cache="0"}
+        		{php $s=1;}
+        		{loop $data $i}
+        		<li><em {if $s<4}class="n{$s}"{/if} >{$s}</em><a href="{APP_PATH}index.php?m=yp&c=com_index&userid={$i[userid]}" target="_blank">{$i['companyname']}</a></li>
+        		{php $s++;}
+        		{/loop}
+        		{/pc} 
+            </ul>
+            </div>
+             
+             
+            <span class="o1"></span><span class="o2"></span><span class="o3"></span><span class="o4"></span>
+        </div>
+    	<div class="bk10"></div>
+        <div class="box box-tab fillet fillet-blue">
+        	<ul class="tab clear swap-tab cu-li">
+            	<li class="on">24小时热点商机</li>
+                <li>本周热点商机</li>
+            </ul>
+        	<div class="swap-content">
+         	<ul class="list-num">
+            	{pc:yp action="hits" modelid="$this->setting_models[76]" num="10" order="views DESC" cache="0" }
+   				{php $q=1;}
+					{loop $data $r}
+		            <li><em {if $q<4}class="n{$q}"{/if} >{$q}</em><a href="{$r[url]}" target="_blank">{$r[title]}</a></li>
+		            {php $q++;}
+ 	            {/loop}
+	            {/pc}
+            </ul>
+            
+            <ul class="list-num" style="display:none;">
+            	{pc:yp action="hits" modelid="$this->setting_models[76]" num="10" order="weekviews DESC" cache="0" }
+   				{php $q=1;}
+					{loop $data $r}
+		            <li><em {if $q<4}class="n{$q}"{/if} >{$q}</em><a href="{$r[url]}" target="_blank">{$r[title]}</a></li>
+		            {php $q++;}
+ 	            {/loop}
+	            {/pc}
+            </ul>
+             </div>
+            <span class="o1"></span><span class="o2"></span><span class="o3"></span><span class="o4"></span>
+        </div>
+    </div>
+</div>
+{template 'yp', 'footer'}

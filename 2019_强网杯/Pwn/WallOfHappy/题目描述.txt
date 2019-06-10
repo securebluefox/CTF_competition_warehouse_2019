@@ -1,0 +1,3 @@
+Wall of happy can make you feel unhappy if you try to crack it manually >_<.
+
+4.15.0-29deepin-generic GNU C Library (Debian GLIBC 2.27-3) stable release version 2.27

@@ -1,0 +1,1 @@
+We only know that one used /etc/shadow file to encrypt important message for us. shadow.txt encrypted.txt

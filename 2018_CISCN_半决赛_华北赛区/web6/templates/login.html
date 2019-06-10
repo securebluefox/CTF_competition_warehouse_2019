@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content_block %}
+    <script>
+window.onload = function () {
+var c = document.getElementById("vtt_captcha");
+var ctx = c.getContext("2d");
+var img = new Image();
+img.onload = function () {
+ctx.drawImage(img, 0, 0);
+};
+img.src = '{{ cap.jpg }}';
+c.onmousedown = function (event) {
+var rect = this.getBoundingClientRect();
+var x = (event.x - rect.left) * (this.width / rect.width);
+var y = (event.y - rect.top) * (this.height / rect.height);
+ctx = c.getContext("2d");
+ctx.beginPath();
+ctx.arc(x,y,10,0,360,false);
+ctx.fillStyle="red";
+ctx.fill();
+ctx.closePath();
+document.getElementById('captcha_x').value = x;
+document.getElementById('captcha_y').value = y;
+}
+};
+</script>
+<div class="account">
+	<div class="container">
+		<h1>登录</h1>
+		<div class="account_grid">
+            {% for message in messages %}
+              <div class="ui negative message">
+              <div class="alert alert-danger alert-dismissable">
+                {{ message }}
+              </div>
+              </div>
+              {% endfor %}
+			   <div class="col-md-6 login-right">
+				<form action="{% url 'login' %}" method="post">
+                    {% csrf_token %}
+					<span>用户名</span>
+					{{ login_form.username }}
+				
+					<span>密码</span>
+					{{ login_form.password }}
+<div>
+<label>验证码 ( {{ cap.question }} )：</label><br/>
+<canvas id="vtt_captcha" width="680" height="460" rel="{{ cap.uuid }}"></canvas>
+    <input type="hidden" id="" name="picid" value="{{ cap.uuid }}">
+<input type="hidden" id="captcha_x" name="captcha_x" value="">
+<input type="hidden" id="captcha_y" name="captcha_y" value="">
+</div>
+					<div class="word-in">
+				  		<a class="forgot" href="{% url 'resetpass' %}">忘记密码？</a>
+                        <input type="hidden" name="source_url" value="{{ request.META.HTTP_REFERER }}">
+				 		<input type="submit" value="登录">
+				  	</div>
+			    </form>
+			   </div>	
+			    <div class="col-md-6 login-left">
+			  	 <h4>还没有帐号？</h4>
+				 <p>申请一个新帐号就可以进行购物了哟</p>
+				 <a class="acount-btn" href="{% url 'register' %}">创建帐号</a>
+			   </div>
+			   <div class="clearfix"> </div>
+			 </div>
+
+	</div>
+</div>
+{% endblock %}

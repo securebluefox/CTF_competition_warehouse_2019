@@ -1,0 +1,2 @@
+We captured some traffic logging into the admin panel, can you find the password?
+Tools like wireshark are pretty good for analyzing pcap files.

@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="jumbotron commodity-info">
+   <h1>{{ commodity.name }}</h1>
+   <p class="lead" style="word-wrap:break-word">{{ commodity.desc }}</p>
+   <p>原价: {{ commodity.price }}  现价{{int(commodity.price*0.8)}}</p>
+   <p>Amount: {{ commodity.amount }}</p>
+   <form action="/seckill" method="post">
+      {% raw xsrf_form_html() %}
+      <input class="hidden" name="price" value="{{int(commodity.price*0.8)}}">
+      <input class="hidden" name="id" value="{{commodity.id}}">
+      <button class="btn btn-lg btn-success">秒杀</button>
+   </form>
+</div>
+
+{% end %}

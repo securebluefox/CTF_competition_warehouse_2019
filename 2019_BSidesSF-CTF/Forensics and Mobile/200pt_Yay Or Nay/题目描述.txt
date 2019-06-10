@@ -1,0 +1,11 @@
+Keep track of places you would love / hate to see, by dropping markers with a simple click. Try YayorNay v1.2 today!
+
+:::: Updated README :::: v 1.0 - Added short press, Yay support - Fix stability issues
+
+v 1.1 - Added long press, Nay support - Add labels
+
+v 1.2 - Populate from DB - Save to DB
+
+To-do - Fix stability issues - Bug fixes - Implement feature to view by day
+
+(Not the standard flag format, case matters!)

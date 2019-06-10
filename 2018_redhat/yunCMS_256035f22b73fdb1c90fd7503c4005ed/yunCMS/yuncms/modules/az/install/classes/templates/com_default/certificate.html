@@ -1,0 +1,22 @@
+{php $tpl_dir = $this->default_tpl;}
+{template $tpl_dir, 'header'}
+<div class="main clear">
+  <div class="col-auto">
+  	{template 'yp/com_default', 'block_contact'}
+   	  <h2 class="crumbs">荣誉资质<span>/PRODUCTS</span></h2>
+   	 		{pc:yp action="get_certificate" userid="$array[userid]" status="1" num="10" order="addtime desc" cache="0"  page="$page"}
+	            <ul class="rongyu-list picbig clear">
+	            {loop $data $r}    
+				<li>
+				<div class="img-wrap">
+				<a href="{$r[thumb]}" title="{$r[name]}" target="_blank"><img style="height: 285px; width: 250px;" src="{$r[thumb]}" title="{$r[name]}"></a>
+				</div>
+				<a href="{$r[thumb]}" title="{$r[name]}" target="_blank">{$r[name]}</a>
+				</li>
+				{/loop}
+	            </ul>
+	            <div id="pages" class="text-c">{$pages}</div>
+            {/pc}
+        </div>
+</div>
+{template 'yp/com_default', 'footer'}

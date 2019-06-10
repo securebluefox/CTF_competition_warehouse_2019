@@ -1,0 +1,3 @@
+简单的安卓逆向
+备用下载地址：http://47.107.33.15:23333/Reverse/SimpleCheck_4a93e496bf0f17eec2b18ed9cbaad1c4.7z
+最低分值：100

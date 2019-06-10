@@ -1,0 +1,99 @@
+{php $tpl_dir = $this->default_tpl;}
+{template $tpl_dir, 'header'}
+<!-- 主体开始 -->
+<div class="main clear">
+	<div class="col-left">
+    	<div class="box">
+        	<h2 class="title">企业信息</h2>
+            <div class="content">
+            <table width="100%" class="table-info" border="0">
+                  <tr>
+                    <th>公司名：</th>
+                    <td>{$array[companyname]}</td>
+                  </tr>
+                  <tr>
+                    <th>联系人：</th>
+                    <td>{$array[linkman]}</td>
+                  </tr>
+                  <tr>
+                    <th>电话：</th>
+                    <td>{$array[telephone]}</td>
+                  </tr>
+                  <tr>
+                    <th>传真：</th>
+                    <td>{$array[fax]}</td>
+                  </tr>
+                  <tr>
+                    <th>地址：</th>
+                    <td>{$array[address]}</td>
+                  </tr>
+                  <tr>
+                    <th>网址：</th>
+                    <td>{$array[web_url]}</td>
+                  </tr>
+                  <tr>
+                    <th>邮箱：</th>
+                    <td>{$array[email]}</td>
+                  </tr>
+                </table>
+            </div>
+        </div>
+        <div class="bk10"></div>
+        <div class="box">
+        	<h2 class="title">企业新闻</h2>
+            <ul class="content list">
+            {pc:yp action="get_datas" userid="$array[userid]" modelid="$this->setting_models[72]" num="10" order="inputtime desc" cache="0"}
+ 			{loop $data $r}
+            	<li>·<a href="{compute_company_url('show', array('catid'=>$r['catid'], 'id'=>$r['id'], 'page'=>1))}" title="{$r[title]}" >{str_cut($r[title],32,'')}</a></li> 
+            {/loop}
+            {/pc}	
+            </ul>
+        </div>
+        <div class="bk10"></div>
+        <div class="box">
+        	<h2 class="title">荣誉资质</h2>
+            <div class="content">
+            	<div class="FocusPic">
+                    <div class="content" id="slide">
+                        <div class="changeDiv">  
+                        	{pc:yp action="get_certificate" userid="$array[userid]" status="1" num="10" order="addtime desc" cache="0"}
+                             {loop $data $r}
+                            	<a href="{$r['thumb']}" target="_blank"><img src="{$r['thumb']}" width="222" height="164" /></a>
+                            {/loop}
+                            {/pc}
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </div>
+        <div class="bk10"></div>
+    </div>
+    <div class="col-auto">
+  <div class="box introduction">
+        	<h2 class="title">公司简介</h2>
+            <div class="content">{$array[introduce]}</div>
+        </div>
+        <div class="bk10"></div>
+        <div class="box">
+        	<h2 class="title">推荐产品</h2>
+            <div class="content">
+            	<ul class="news-photo picbig clear">
+                 {pc:yp action="get_datas" userid="$array[userid]" modelid="$this->setting_models[73]" num="10" order="listorder asc" cache="0"}
+ 				 {loop $data $r}
+                    <li>
+                    <div class="img-wrap">
+                    <a title="{$r[title]}" href="{compute_company_url('show', array('catid'=>$r['catid'], 'id'=>$r['id'], 'page'=>1))}" target="_blank"><img title="{$r[title]}" src="{$r[thumb]}"></a>
+                    </div>
+                    <a title="{$r[title]}" href="{compute_company_url('show', array('catid'=>$r['catid'], 'id'=>$r['id'], 'page'=>1))}">{$r[title]}</a>
+                	</li>
+                {/loop}
+                {/pc}
+                            </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+new slide("#slide","cur",222,164,1);//首页焦点图
+</script>
+{template 'yp/com_default', 'footer'}

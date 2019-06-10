@@ -1,0 +1,3 @@
+This is the same as runit, except requires a bit of reversing! Grab the flag from /home/ctf/flag.txt
+
+Location - runitplusplus-a36bf652.challenges.bsidessf.net:5353

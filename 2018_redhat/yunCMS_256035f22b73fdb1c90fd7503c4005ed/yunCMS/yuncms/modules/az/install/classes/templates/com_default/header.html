@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={CHARSET}" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<title>{$SEO[title]}</title>
+<meta content="{$SEO[keywords]}" name="keywords" />
+<meta content="{$SEO[description]}" name="description" />
+<link href="{CSS_PATH}reset.css" rel="stylesheet" type="text/css" />
+<link href="{TEMPLATE_PATH}style.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="{JS_PATH}jquery.min.js"></script>
+<script type="text/javascript" src="{JS_PATH}jquery.sgallery.js"></script>
+</head>
+<body>
+<div class="body-top">
+    <div class="content">
+    		<div class="lf"><a href="{siteurl($siteid)}" target="_blank">首页</a><span> | </span><a href="{get_yp_url()}" target="_blank">企业黄页</a><span> | </span><a href="{get_yp_url('company')}" target="_blank">企业库</a>
+			{loop $this->models $r}
+			 {php $r['setting'] = string2array($r['setting']);}
+			 {if $r['setting']['ismenu']}
+				<span> | </span>
+				<a href="{get_yp_url('model', $r['modelid'])}" target="_blank">{$r[name]}</a>
+			 {/if}
+			 {/loop}</div>
+             <div class="login lh24 blue"><a href="{APP_PATH}index.php?m=content&c=rss&siteid={get_siteid()}" class="rss ib">rss</a><span class="rt"><script type="text/javascript">document.write('<iframe src="{APP_PATH}index.php?m=member&c=index&a=mini&forward='+encodeURIComponent(location.href)+'&siteid={get_siteid()}" allowTransparency="true"  width="500" height="24" frameborder="0" scrolling="no"></iframe>')</script></span></div>
+    </div>
+</div>
+<div class="banner">
+	<div class="content"{if $array[banner]} style="background-image:url({$array[banner]});"{/if}>
+    	{if $array[logo]}<div class="logo picbig"><div class="img-wrap"><a href=""><img src="{$array[logo]}" /></a></div></div>{/if}
+    	<h1{if $array[logo]} style="left:156px"{/if}>{$array[companyname]}</h1>
+        <h2>主营：{str_cut($array[products],100)}</h2>
+    	{if !$array[banner]}<div class="ads"></div>{/if}
+    </div>
+</div>
+<div class="nav">
+    <ul class="content">
+    {php $menus = string2array($array['menu']); ksort($menus['list']);}
+	{loop $menus['list'] $k $v}
+		{if $menus['catname'][$v]['used']=='1'}
+		{if $n!=1}<li class="line"></li>{/if}
+		<li><a href="{$menus['catname'][$v]['linkurl']}" >{$menus['catname'][$v]['catname']}</a></li>
+		{/if}
+	{/loop}
+    </ul>
+</div>
+<div class="bk10"></div>

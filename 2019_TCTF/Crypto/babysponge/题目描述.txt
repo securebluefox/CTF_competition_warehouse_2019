@@ -1,0 +1,7 @@
+SHA-3 uses the sponge construction, in which data is "absorbed" into the sponge, then the result is "squeezed" out -- from Wikipedia
+
+nc 111.186.63.14 10001
+
+babysponge.tar.gz
+
+(The keccak implementation is from https://github.com/XKCP/XKCP)

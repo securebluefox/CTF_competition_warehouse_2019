@@ -1,0 +1,3 @@
+A simple Calculator only implemented basic arithmetics and variable assignment. Findout a way to pwn me! 
+
+Hint1: Read the logic of assignment carefully.

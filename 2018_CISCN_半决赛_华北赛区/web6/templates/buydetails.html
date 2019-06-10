@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content_block %}
+<div class="container">
+	<div class="check-out">
+		<h1>购买记录</h1>
+    {% for message in messages %}
+              <div class="ui negative message">
+              <div class="alert alert-danger alert-dismissable">
+                {{ message }}
+              </div>
+              </div>
+              {% endfor %}
+    	  <table >
+		  <tr>
+			<th>商品</th>
+			<th>购买数量</th>
+			<th>原价</th>
+			<th>现价</th>
+            <th>商品信息</th>
+			<th>小计</th>
+		  </tr>
+          <div class="shopcar_list">
+          {% for item in clo_list %}
+		  <tr>
+			<td class="ring-in"><a href="{% url 'info' item.clothing.id%}" class="at-in"><img src="{{ MEDIA_URL }}{{ item.clothing.image_url_c }}" class="img-responsive" alt=""></a>
+
+                <div class="sed">
+				<h5>{{ item.clothing.name }}</h5>
+			</div>
+			<div class="clearfix "> </div></td>
+			<td class="check"><input type="text" value="{{ item.buynum }}" readonly="readonly"></td>
+			<td style="text-decoration:line-through">{{ item.clothing.old_price }}元</td>
+			<td>{{ item.clothing.price }}元</td>
+              <td><div class="buydetails">{{ item.clothing.details }}</div></td>
+			<td>{{ item.buypay }}元</td>
+		  </tr>
+          {% endfor %}
+          </div>
+          <tr>
+          </tr>
+	</table>
+{#	<a href="#" class=" to-buy">去结算</a>#}
+	<div class="clearfix"> </div>
+    </div>
+</div>
+{% endblock %}
+

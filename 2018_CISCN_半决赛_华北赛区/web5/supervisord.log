@@ -1,0 +1,26 @@
+2018-06-23 12:03:06,835 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2018-06-23 12:03:06,856 INFO RPC interface 'supervisor' initialized
+2018-06-23 12:03:06,856 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2018-06-23 12:03:06,856 INFO supervisord started with pid 1
+2018-06-23 12:03:07,859 INFO spawned: 'httpd' with pid 8
+2018-06-23 12:03:07,861 INFO spawned: 'sshd' with pid 9
+2018-06-23 12:03:07,864 INFO spawned: 'mysql' with pid 10
+2018-06-23 12:03:09,104 INFO success: httpd entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-06-23 12:03:09,104 INFO success: sshd entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-06-23 12:03:09,104 INFO success: mysql entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-06-23 12:56:15,150 WARN received SIGTERM indicating exit request
+2018-06-23 12:56:15,151 INFO waiting for httpd, sshd, mysql to die
+2018-06-23 12:56:15,162 INFO stopped: mysql (exit status 0)
+2018-06-23 12:56:15,176 INFO stopped: sshd (exit status 255)
+2018-06-23 12:56:15,299 INFO stopped: httpd (exit status 0)
+2018-06-23 12:56:32,381 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2018-06-23 12:56:32,489 INFO RPC interface 'supervisor' initialized
+2018-06-23 12:56:32,490 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2018-06-23 12:56:32,490 INFO supervisord started with pid 1
+2018-06-23 12:56:33,493 INFO spawned: 'httpd' with pid 8
+2018-06-23 12:56:33,497 INFO spawned: 'sshd' with pid 9
+2018-06-23 12:56:33,500 INFO spawned: 'mysql' with pid 10
+2018-06-23 12:56:34,758 INFO success: httpd entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-06-23 12:56:34,758 INFO success: sshd entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-06-23 12:56:34,759 INFO success: mysql entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-06-23 17:13:02,927 INFO reaped unknown pid 1979

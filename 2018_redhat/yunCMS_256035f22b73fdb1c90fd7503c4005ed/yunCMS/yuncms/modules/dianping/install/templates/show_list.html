@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={CHARSET}" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<title>点评模板</title>
+<link href="{CSS_PATH}reset.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}dianping.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="{JS_PATH}jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="{JS_PATH}star_bak.js"></script>
+<script language="javascript" type="text/javascript" src="{JS_PATH}form_ajax.js"></script>
+<script type="text/javascript" src="{JS_PATH}formvalidator.js" charset="UTF-8"></script> 
+<script type="text/javascript" src="{JS_PATH}formvalidatorregex.js" charset="UTF-8"></script>
+</head>
+<body>
+<div class="dianping-box dianping-list" id="dianping_content">
+{pc:dianping action="lists" dianpingid="$dianpingid" siteid="$siteid" is_useful="$is_useful" status="$status" order=" id desc" num="5" page="$page"} 
+{if $data}
+{loop $data $r}
+    <div class="opinion-row">
+    	<div class="img-box"> <img height="50" width="54" src="{if $r[username]}{get_memberavatar($r[userid],'1','90')}{else}{IMG_PATH}member/nophoto.gif{/if}" alt="" style="margin-top: 0px;" onerror="this.src='{$phpsso_api_url}/statics/images/member/nophoto.gif'"><p>{if $r['username']}{$r['username']}{else}本站网友{/if} </p></div>
+		<?php $data2 = string2array($r['data']);?>
+        <div class="text-box">
+        	<div class="opinion-box clear">
+            	<dl class="lite-rate lf"><dd style="width:<?php echo $data2['平均得分'];?>%"></dd></dl>
+                <div class="lf opinion-item">
+                <span class="line"> | </span>
+				<?php 
+ 				foreach ($data2 as $name=>$val){
+					if($name!='平均得分'){
+				?>
+		        {$name}：<span class="number">{$val}</span>
+		        <?php }}?> 
+                </div>
+                <div class="time">{format::date($r[addtime], 1)}</div>
+            </div>
+            <pre>{$r[content]}</pre>
+        </div>
+    </div> 
+{/loop}	
+{/if}
+	<div id="pages" class="text-c">{$pages}</div>
+
+{/pc}	
+
+</div>
+<div class="bk10"></div>
+
+<form action="{APP_PATH}index.php?m=dianping&c=index&a=post&dianpingid={$dianpingid}&contentid={$contentid}" id="dianping_from" method="post">
+<input type="hidden" name="module" value="{$module}">
+<input type="hidden" name="modelid" value="{$modelid}">
+<input type="hidden" name="dianping_type" value="{$dianping_type}">
+
+<div class="dianping-box dianping-add clear">
+	<h5>点评</h5>
+	
+	<?php
+ 	$dianpin_li = explode('&&', $type_array[$dianping_type]['data']);
+ 	$star_n = 0;
+	?>
+	{loop $dianpin_li $star_name}
+	<?php $star_n++; $star_code = explode('$$', $star_code);?>
+    <dl class="star-form">
+    	<dt><font color="red">*</font>{$star_name}：</dt>
+        <dd>
+		<input class="star" id="star{$star_n}_c" type="hidden" name="data[{$star_n}]" /><div class="tip ib" id="tip_{$star_n}"></div>
+		</dd>
+    </dl>
+	{/loop}
+	
+    <dl class="star-textarea">
+    	<dt><font color="red">*</font>点评：</dt>
+        <dd><textarea name="content" id="saytxt"></textarea></dd>
+    </dl>
+    {if $setting['code']=='1'}
+     <dl class="star-textarea">
+    	<dt style="line-height:40px;"><font color="red">*</font>验证码：</dt>
+        <dd><input name="code" type="text" id="code" size="10"  class="input-text"/> {form::checkcode('code_img','4','14',110,26)}</dd>
+    </dl>
+    {/if}
+    {if $is_allowdianping!='1'}
+	    <div class="star-btn">
+	    	<p>{$dianping_info}</p>
+	        <input type="submit" id="dianping_sbumit" value=" 提交点评 " {if $is_allowdianping!='1'}disabled=true{/if}/>
+	    </div>
+    {else}
+    <div class="star-btn">
+    	<p>您的评分和点评将影响其他人的消费参考，请保持客观冷静</p>
+        <input type="submit" id="dianping_sbumit" value=" 提交点评 "/>
+    </div>
+    {/if}
+    
+</div>
+</form>
+
+<script type="text/javascript">
+$(function(){
+	$.formValidator.initConfig({autotip:true,formid:"myform",onerror:function(msg){}});
+	//$("#saytxt").formValidator({onshow:"请留二句吧",onfocus:"请输入网站名称"}).inputValidator({min:1,max:999,onerror:"网站名称不能为空"});
+  	$("#code").formValidator({onshow:"请输入验证码",onfocus:"验证码不能为空"}).inputValidator({min:1,max:999,onerror:"验证码不能为空"}).ajaxValidator({
+	    type : "get",
+		url : "",
+		data :"m=pay&c=deposit&a=public_checkcode",
+		datatype : "html",
+		async:'false',
+		success : function(data){	
+            if(data == 1)
+			{
+                return true;
+			}
+            else
+			{
+                return false;
+			}
+		},
+		buttons: $("#dosubmit"),
+		onerror : "验证码错误",
+		onwait : "验证中"
+	});
+})
+ 	
+function SendOrder(){
+	var from_data = $('#dianping_from').serialize();
+	params = decodeURIComponent(from_data,true);
+	var saytxt = $("#saytxt").val();
+	<?php 
+	$values = '';
+	$nums = count($dianpin_li);
+	for($i=1;$i<=$nums;$i++){
+	?>
+	var star<?php echo $i;?> = $("#star<?php echo $i;?>_c").val();
+	<?php }?>
+  	<?php 
+	for($i=1;$i<=$nums;$i++){
+	?>
+	if(star<?php echo $i;?>==0){
+	alert('请为每项打分！'); return false;
+	}
+	<?php } ?>
+	if(saytxt==''){
+		alert('顺便说二句吧？'); return false;
+	}
+	$.post("{APP_PATH}index.php?m=dianping&c=index&a=post&dianpingid={$dianpingid}&is_checkuserid={$is_checkuserid}&del_id={$del_id}",params,function(data){
+		if(data==1){
+			window.location.href=window.location.href;
+		}
+		else {
+			alert('提交失败');
+		}
+	});
+}
+$('#dianping_from').checkFormorder(1,SendOrder); 
+$(".star-form").each(function(i){
+	var i=i+1;
+	$("#star"+i+"_c").webwidget_rating_sex({
+		rating_star_length: '5',
+		rating_star_each: i,
+		rating_initial_value: '0',
+		rating_function_click: 'clicks',
+		rating_function_hover: 'hover',
+		directory: '{IMG_PATH}dianping'
+	});
+});
+
+var fentip=new Array("很糟","差","一般","好","非常好");
+function clicks(id,num) {
+	$("#tip_"+num).attr("c",id).text(fentip[id-1]);
+}
+function hover(value,num){
+	$("#tip_"+num).text(fentip[value]);
+}
+</script>
+</body>
+</html>

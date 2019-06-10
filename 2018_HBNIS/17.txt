@@ -1,0 +1,7 @@
+题目：crackme
+
+描述：下载附件获取flag
+
+flag格式：flag{XXX}
+
+提交：直接提交括号中的内容

@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <div class="jumbotron">
+       <h1>购物车</h1>
+        {% try %}
+        {% if commodities %}
+        <div class="shopcar_list">
+            <ul class="list-group">
+                {% for i in commodities %}
+                <li class="list-group-item"><a href="/buy/{{i.id}}">{{ i.name }} / {{ i.price }}</a></li>
+                {% end %}
+
+            </ul>
+            <form action="" method="post" id="form">
+                {% raw xsrf_form_html() %}
+                <input type="hidden" name="info" value="" id="info">
+                <input type="hidden" name="price" value="{{ price }}">
+                <button class="btn btn-danger" type="button" onclick="submit();">结算</button>
+            </form>
+        </div>
+        <script>
+            function submit(){
+            commodities={%raw commodities%}
+            res=[]
+            for(var i in commodities){
+                res.append({"id":commodities[i].id,"price":commodities[i].price);
+            }
+            $("#info").val(res)
+            $("#form").submit();
+            }
+        </script>
+        {%end%}
+        {% except %}
+        {% end %}
+    </div>
+
+{% end %}

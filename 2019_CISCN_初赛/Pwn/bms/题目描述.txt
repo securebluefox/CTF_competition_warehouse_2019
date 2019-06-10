@@ -1,0 +1,3 @@
+nc 90b826377a05d5e9508314e76f2f1e4e.kr-lab.com 40001
+
+nc 1c0e562267cef024c5fea2950a3c9bea.kr-lab.com 40001

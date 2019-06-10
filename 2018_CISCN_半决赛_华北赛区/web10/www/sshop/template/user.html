@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="jumbotron user-info">
+    <h1 class="user-username">{{ user.username }}</h1>
+    <h3 class="user-email">邮箱地址：{{ user.mail }}</h3>
+    <h3 class="user-wallet-addr">钱包地址：</h3>
+    <span style="font-size: 8px; ">{{ user.wallet_addr }}</span>
+    <h3 class="user-private-key">用户私钥：</h3>
+    <span style="font-size: 8px; ">{{ user.private_key }}</span>
+    {% if 'balance' in globals().keys() %}
+    <h3 class="user-balance">购物积分：{{ balance }}</h3>
+    {% else %}
+    <h3 class="user-balance">购物积分：{{ user.integral }}</h3>
+    {% end %}
+    <h3 class="user-exp">经验值：{{ user.exp }}</h3>
+    <h3 class="invite-num">推荐人数：{{ user.invite_num }}</h3>
+    <h3 class="remainder">(至多推荐300名新用户)</h3>
+</div>
+{% end %}

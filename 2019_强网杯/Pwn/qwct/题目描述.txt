@@ -1,0 +1,5 @@
+nc 49.4.91.164 8839
+QWCT!
+请使用自己队伍的token生成flag，否则flag无效
+./qemu-system-x86_64_qwb -initrd ./initramfs-busybox-x64.cpio.gz -nographic -kernel ./vmlinuz-5.0.5-generic -append "priority=low console=ttyS0" -device qwb -monitor /dev/null
+QWB CRYPTO MACHINE

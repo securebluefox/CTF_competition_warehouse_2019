@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content_block %}
+    <div class="content">
+    <div class="container">
+        <div class="content-top">
+            <h1>用户信息</h1>
+            <div class="content-top1">
+            <div class="user-info">
+                <h1 class="user-integral">剩余积分:{{ user.integral }}</h1>
+                <h2 class="content"><a href="{% url 'buydetails' %}" class="item_add ">购买记录</a></h2>
+                <h3 class="content">邮箱:{{ user.email }}</h3>
+                <h3 class="content">最后登陆时间:{{ user.last_login }}</h3>
+                <h3 class="content">注册时间:{{ user.date_joined }}</h3>
+                <h3 class="content"><a href="{% url 'changepass' %}" class="item_add ">修改密码</a></h3>
+            </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}

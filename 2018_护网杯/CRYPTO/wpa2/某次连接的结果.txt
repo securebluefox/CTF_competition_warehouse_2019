@@ -1,0 +1,15 @@
+Welcome to HuWang Bei WPA2 Simulation System.. Initilizing Parameters..
+
+SSID = HuWang
+
+PSK = Z9EPtp3nslf3CrHr
+
+AP_MAC = 91:71:5B:6B:66:EE
+
+AP_Nonce = 76fc19587c963a4c64df130a296d9acb00a114d1cdaad83c5071340ede33eb48
+
+STA_MAC = 34:45:62:38:3A:A4
+
+STA_Nonce = c6ef7b1fb1c528927a5d4ab116cbbd6aa5a0bad8fdd59053e37916c91104c4e9
+
+CCMP Encrypted Packet = 88423a01344562383aa491715b6b66ee91715b6b66ee60920000013900203400000074a00d39f8a7bf3f7ffac6d811ab2d20cde727a3bb2fc3cbd7b67c65d55ec526d271dd20c3f7ebad65

@@ -1,0 +1,2 @@
+hint:注意cbc padding标准，以及文件注释
+hint:两个字节两个字节爆破，注意题目注释，注意 cbc 长度块的倍数时，是否需要padding

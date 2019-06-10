@@ -1,0 +1,1 @@
+INSERT INTO `phpcms_module` VALUES ('dianping', '点评模块', '', '0', '1.0', '', ' ', '0', '0', '2011-06-26', '2011-06-26');

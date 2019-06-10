@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block body %}
+{% try %}
+        {% if pricekill %}
+
+    <div class="jumbotron">
+       <h1>秒杀活动,限时8折</h1>
+        <h3>每10分钟更换三件商品，抓紧时间，下一个就是你</h3>
+        <div class="shopcar_list">
+            <ul class="list-group" id="shoplist">
+                <li class="list-group-item"> {{raw.name }} /{{ raw.price }}</li>
+            </ul>
+        </div>
+        <form action="" method="post">
+            {% raw xsrf_form_html() %}
+            <input class="hidden" name="id" id="id" value="1">
+            <input class="hidden" name="price" id="price" value="1">
+            <button class="btn btn-danger" type="submit">秒杀</button>
+        </form>
+    </div>
+<script>
+    killlist={%raw pricekill%};
+output="";
+    for(var i in killlist){
+    output+='<li class="list-group-item"><a href='+killlist[i].url+'> '+killlist[i].name +' / '+killlist[i].price +'</a></li>';
+    }
+    $("#id").val(killlist[0].id)
+    $("#price").val(killlist[0].price)
+    $("#shoplist").html(output)
+</script>
+        {%end%}
+        {% except %}
+        {% end %}
+{% end %}

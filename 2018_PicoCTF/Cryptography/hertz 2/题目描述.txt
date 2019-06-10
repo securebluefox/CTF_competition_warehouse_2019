@@ -1,0 +1,2 @@
+This flag has been encrypted with some kind of cipher, can you decrypt it? Connect with nc 2018shell2.picoctf.com 59771.
+These kinds of problems are solved with a frequency that merits some analysis.

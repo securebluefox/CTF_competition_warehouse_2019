@@ -1,0 +1,50 @@
+{php $tpl_dir = $this->default_tpl;}
+{template $tpl_dir, 'header'}
+<div class="main clear">
+  <div class="col-auto">
+  	{template $tpl_dir, 'block_contact'}
+	{php $b_type = array('1'=>'供应', '2'=>'求购', '3'=>'二手', '4'=>'促销',);}
+   	  <h2 class="crumbs">商机<span>/Business Opportunity</span></h2>
+    <div class="sub-nav">商机分类：<a href="{compute_company_url('model')}">全部</a>{loop $catid_arr $cid $c}<a href="{compute_company_url('model', array('catid'=>$cid))}">{$CATEGORYS[$cid]['catname']}({$c['num']})</a>
+	{/loop}</div>
+              <div class="show-box">
+    	<h1>{$title} ({$b_type[$tid]})</h1> 
+
+        {php $type_arr = get_parent_url($modelid, $catid);}
+      <table width="100%" class="products-para" border="0">
+       <caption>基本参数</caption>
+        <tr><th width="15%">有效期：</th><td>{$expiration}</td><th width="15%">类别：</th><td><a href="{$CAT['url']}">{$type_arr['title']}</a></td></tr>
+        <tr><th>品牌：</th><td>{$brand}</td><th>型号：</th><td>{$standard}</td></tr>
+        <tr><th>产地：</th><td>{$yieldly}</td><th>价格：</th><td>{$price}元 {if $units}/ {$units} {/if}</td></tr>
+        <tr><th>更新：</th><td>{$updatetime}</td><th></th><td></td></tr>
+        {php $j=1;}
+        {loop $additional_base $ab $af}
+            {if $j%2==1}<tr>{/if}<th>{$additional_fields[$ab]['name']}：</th><td>{$af}</td>{if $j%2==0}</tr>{/if}
+            {php $j++;}
+        {/loop}
+      </table>
+
+    {if $additional_general}
+    <div class="bk10"></div>
+			<table width="100%" class="products-para" border="0">
+           <caption>基本参数</caption>
+          {loop $additional_general $ag $avalue}
+          {if $n%2==1}<tr>{/if}
+            <th width="15%">{$additional_fields[$ag]['name']}：</th>
+            <td width="35%">&nbsp;{$avalue}</td>
+          {if $n%2==0}</tr>{/if}
+		  {/loop}
+        </table>
+        
+        {/if}
+        <div class="bk10"></div>
+            <div class="box">
+                <h2 class="title">详细信息</h2>
+                    <div class="content">
+						{$content}
+                    </div>
+            </div>
+    </div>
+</div>
+<div class="bk15"></div>
+{template $tpl_dir, 'footer'}

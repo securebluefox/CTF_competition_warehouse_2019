@@ -1,0 +1,12 @@
+You've been given a dataset of 4800 internet traffic logs for your
+organization's website. This dataset covers the number of unique IP addresses
+sending requests to the site in 15-minute "buckets", across a 24-hour day.
+The attached plot will help you see the daily pattern of traffic. You should
+see 3 spikes of traffic: one in the morning, one at midday, and one in the
+evening.
+
+Your organization needs your help to figure out whether some recent activity
+indicates unusual behavior. It looks like some logs have higher-than-usual
+traffic in their time bucket: many more unique IP addresses are trying to
+access the site than usual. This might be evidence that someone is trying to
+do something shady on your site.

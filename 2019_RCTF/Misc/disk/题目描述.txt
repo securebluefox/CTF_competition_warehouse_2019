@@ -1,0 +1,5 @@
+An otaku used VeraCrypt to encrypt his favorites.
+
+Password: rctf
+
+Flag format: rctf{a-zA-Z0-9_}

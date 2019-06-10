@@ -1,0 +1,6 @@
+ans_pos_x_1 = 419
+ans_pos_y_1 = 81
+ans_width_x_1 = 83
+ans_height_y_1 = 122
+
+vtt_ques = 请点击图中的数字“4”

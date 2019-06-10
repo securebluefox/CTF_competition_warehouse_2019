@@ -1,0 +1,68 @@
+{template 'yp', 'member_header'}
+<script type="text/javascript" src="{JS_PATH}formvalidator.js" charset="UTF-8"></script>
+<script type="text/javascript" src="{JS_PATH}formvalidatorregex.js" charset="UTF"></script>
+
+<script type="text/javascript">
+<!--
+	var charset = '{CHARSET}';
+	var uploadurl = '{php echo pc_base::load_config('system','upload_url')}';
+//-->
+</script>
+<script type="text/javascript">
+<!--
+$(function(){
+	$.formValidator.initConfig({autotip:true,formid:"myform",onerror:function(msg){}});
+	$("#name").formValidator({onshow:"请输入标题",onfocus:"标题不能为空"}).inputValidator({min:1,max:999,onerror:"标题不能为空"});
+	$("#thumb").formValidator({onshow:"请选择图片",onfocus:"图片不能为空"}).inputValidator({min:1,max:999,onerror:"请选择图片"});
+	$("#endtime").formValidator({onshow:"请选择结束时间",onfocus:"请选择结束时间"}).inputValidator({min:1,max:999,onerror:"请选择结束时间"});
+	$("#addtime").formValidator({onshow:"请选择开始时间",onfocus:"开始时间必选"}).inputValidator({min:1,onerror:"请输入收件人ID"});
+}) 
+//-->
+</script>
+
+<link href="{CSS_PATH}dialog.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="{JS_PATH}dialog.js"></script>
+<div id="memberArea">
+	{template 'yp', 'member_left'}
+	 <div class="col-auto">
+		<div class="col-1 ">
+		<h6 class="title">上传资质证书</h6>
+		<div class="content">
+		<form name="myform" action="{APP_PATH}index.php?m=yp&c=business&a=certificate&action=edit&id={$id}" method="post" id="myform">
+		<table width="100%" cellspacing="0" class="table_form">
+		    <tr>
+		       <th>证书名称：</th>
+		       <td><input name="info[name]" type="text" id="name" size="30" value="<?php echo $name;?>"  class="input-text"/> </td>
+		     </tr>
+		     <tr>
+		       <th>发证机构：</th>
+		       <td><input name="info[organization]" type="text" id="organization" size="30" value="<?php echo $organization;?>"  class="input-text"/></td>
+		     </tr>  
+		     <tr>
+		       <th>证书图片：</th>
+		       <td>{form::images('info[thumb]', 'thumb', $thumb, 'yp', '', 40, 'input-text', 'readonly')}</td>
+		     </tr>
+		      <tr>
+		       <th>起至日期：</th>
+		       <td>{form::date('info[addtime]',date('Y-m-d',$addtime))} </td>
+		     </tr> 
+		      <tr>
+		       <th>结束日期：</th>
+		       <td>  {form::date('info[endtime]',date('Y-m-d',$endtime))}</td>
+		     </tr> 
+		     <tr>
+		       <td></td>
+		       <td colspan="2"><label>
+		         <input type="submit" name="dosubmit" id="dosubmit" value="确 定" class="button"/>
+		         </label></td>
+		     </tr>
+		   </table>
+		   </form>
+		   </div>
+		   <span class="o1"></span><span class="o2"></span><span class="o3"></span><span class="o4"></span>
+		   </div>
+  	</div>
+   
+</div>
+<div class="clear"></div> 
+{template 'member', 'footer'}

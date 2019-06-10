@@ -1,0 +1,5 @@
+flag提交格式为：aurora{...}
+（最低分值为200）
+
+备用下载地址：
+http://47.107.33.15:23333/Reverse/tricycle_329f8d9dea6477baffe6ce8ac8ffcbf9.zip

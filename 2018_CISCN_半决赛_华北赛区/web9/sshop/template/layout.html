@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>sshop</title>
+<script src="https://cdn.bootcss.com/jquery/2.1.2/jquery.min.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="{{ static_url('css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ static_url('css/jumbotron-narrow.css') }}" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+    <div class="header clearfix">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li role="presentation"><a href="/shop">商品列表</a></li>
+                {% if current_user %}
+                <li role="presentation"><a href="/user">个人中心</a></li>
+                <li role="presentation"><a href="/seckill">！秒杀活动！</a></li>
+                <li role="presentation"><a href="/shopcar">购物车</a></li>
+                <li role="presentation"><a href="/user/change">修改密码</a></li>
+                <li role="presentation"><a href="/logout">注销</a></li>
+                {% else %}
+                <li role="presentation"><a href="/login">登录</a></li>
+                <li role="presentation"><a href="/register">注册</a></li>
+                {% end%}
+            </ul>
+        </nav>
+        <h3 class="text-muted">sshop</h3>
+    </div>
+    {% try %}
+        {% if success %}
+            <div class="alert alert-success alert-dismissable">
+                操作成功。
+            </div>
+        {%end%}
+    {% except %}
+    {% end %}
+
+    {% try %}
+        {% if danger %}
+            <div class="alert alert-danger alert-dismissable">
+                操作失败。
+            </div>
+        {% end %}
+    {% except %}
+    {% end %}
+    {% block body %}{% end %}
+    <footer class="footer">
+        <p>&copy; 2016 Company, Inc.</p>
+    </footer>
+</div> <!-- /container -->
+</body>
+</html>

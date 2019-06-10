@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>sshop</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/static/css/jumbotron-narrow.css" rel="stylesheet">
+</head>
+
+<?php
+    if($hint){ 
+        echo "daa7b9743fc5f/d624ee33c0de4a46e1e/<br>daa7b9743fc5f/a13963a2e27dd80a770/";
+    }else{
+        echo " When you buy 5 hints, I will tell you a secret.  You bought ".$user['buy_count']." times now";
+    }
+?>
+
+<body>
+    <div class="container">
+        <div class="header clearfix">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation">
+                        <a href="/shop">商品列表</a>
+                    </li>
+
+                    <li role="presentation">
+                        <a href="/user">个人中心</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="/seckill">！秒杀活动！</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="/shopcar">购物车</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="/user/change">修改密码</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="/logout">注销</a>
+                    </li>
+
+                </ul>
+            </nav>
+            <h3 class="text-muted">sshop</h3>
+        </div>
+
+
+
+
+
+
+
+        <div class="jumbotron user-info">
+            <h1 class="user-username"><?php echo $user['username'];?></h1>
+            <h3 class="user-email">邮箱地址：<?php echo $user['mail'];?></h3>
+            <h3 class="user-integral">剩余积分：<?php echo sprintf("%0.2f",$user['integral']);?></h3>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2016 Company, Inc.</p>
+        </footer>
+    </div>
+    <!-- /container -->
+</body>
+
+</html>

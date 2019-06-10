@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>在线举报平台</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="%E5%9C%A8%E7%BA%BF%E4%B8%BE%E6%8A%A5%E5%B9%B3%E5%8F%B0_files/jquery-3.js"></script>
+  <script src="%E5%9C%A8%E7%BA%BF%E4%B8%BE%E6%8A%A5%E5%B9%B3%E5%8F%B0_files/bootstrap.js"></script>
+  <link rel="stylesheet" href="%E5%9C%A8%E7%BA%BF%E4%B8%BE%E6%8A%A5%E5%B9%B3%E5%8F%B0_files/bootstrap.css">
+  <link rel="stylesheet" href="%E5%9C%A8%E7%BA%BF%E4%B8%BE%E6%8A%A5%E5%B9%B3%E5%8F%B0_files/main.css">
+</head>
+<body>
+
+<div class="container">
+  <br>
+  <nav class="navbar navbar-default navbar-flat">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">在线举报平台</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="http://192.168.37.102/index.php">举报</a></li>
+        <li><a href="http://192.168.37.102/admin.php">后台管理</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<div class="container container-body">
+    <div class="panel panel-default">
+    <div class="panel-heading"></div>
+      <div class="panel-body">
+        <form class="form-horizontal" action="/index.php" method="post">
+          <div class="form-group">
+            <div class="col-sm-offset-0 col-sm-12">
+              <label for="comment">消息:</label>
+              <textarea class="form-control" rows="5" id="message" name="message" placeholder="要举报的网址跟理由"></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row" style="margin-left: 0px; margin-right: 0px">
+              <div class="col-sm-6">substr(md5($code),0,6)==='c5c9c1'</div>
+              <div class="col-sm-4" style="padding-left: 15px; padding-right: 0px;"><input class="form-control" id="captcha" name="captcha" placeholder="验证码" type="text"></div>
+              <div class="col-sm-2"><button type="submit" class="btn btn-default">Submit</button></div>
+            </div>
+          </div>
+        </form>
+      
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">你的投诉:</div>
+      <div class="panel-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th><center>时间</center></th>
+              <th><center>UID</center></th>
+              <th><center>状态</center></th>
+            </tr>
+          </thead>
+          <tbody>
+            
+                  <tr>
+                  <td><center>-</center></td>
+                  <td><center>-</center></td>
+                  <td><center>-</center></td>
+                  </tr>
+                          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+
+
+</body></html>

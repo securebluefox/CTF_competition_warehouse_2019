@@ -1,0 +1,4 @@
+nc 49.4.51.149 25391
+The addiction to attack mimic defense
+.
+请使用自己队伍的token获取flag，否则flag无效

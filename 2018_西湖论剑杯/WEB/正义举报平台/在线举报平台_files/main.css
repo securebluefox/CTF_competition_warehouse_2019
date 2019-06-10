@@ -1,0 +1,53 @@
+body{
+	background-image: url('/static/5-13050GS111.gif');
+}
+
+.navbar-flat {
+	background-color: #303030;
+	border-color: transparent;
+}
+
+.container-body {
+	width: 700px;
+}
+
+.footer {
+	text-align: center;
+}
+
+.panel-search {
+    padding-top: 15px;
+    padding-left: 10px;
+    padding-bottom: 0px;
+}
+
+.search-input {
+	height: 30px;
+}
+
+.search-button {
+	height: 30px;
+	width: 150px;
+	padding-top: 3px;
+	padding-bottom: 3px;	
+}
+
+.search-form-control {
+	height: 30px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.navbar-admin {
+	#display: inline-block;
+	float: none;
+	vertical-align: top;
+}
+
+.navbar-collapse-admin {
+  text-align: center;
+}
+
+textarea.form-control {
+  resize: none;
+}

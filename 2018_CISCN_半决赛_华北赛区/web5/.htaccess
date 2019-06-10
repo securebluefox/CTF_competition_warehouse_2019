@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteRule ^info/([0-9]+)$ info/info.php?cid=$1
+RewriteRule ^shopcar shopcar.php
+RewriteRule ^login login.php
+RewriteRule ^register register.php
+RewriteRule ^seckill seckill.php
+RewriteRule ^logout logout.php
+RewriteRule ^pay pay.php
+RewriteRule ^(shop)$ $1.php
+RewriteRule ^(shopcar)$1/(add)$2 $1$2.php

@@ -1,0 +1,5 @@
+Fool is revenge.
+
+nc feca5ae673559f797a3e22f1b89cb053.kr-lab.com 20001
+
+nc 2a41bfe4cac435448ead5daacf50cb7f.kr-lab.com 20001

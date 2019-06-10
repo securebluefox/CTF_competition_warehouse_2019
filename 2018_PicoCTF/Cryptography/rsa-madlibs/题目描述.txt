@@ -1,0 +1,2 @@
+We ran into some weird puzzles we think may mean something, can you help me solve one? Connect with nc 2018shell2.picoctf.com 36859
+RSA info£¨https://simple.wikipedia.org/wiki/RSA_algorithm£©

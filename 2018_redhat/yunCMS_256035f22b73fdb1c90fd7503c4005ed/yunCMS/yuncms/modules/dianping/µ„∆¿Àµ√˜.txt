@@ -1,0 +1,10 @@
+id dianpingid (生成的点评ID) userid username moduel(按模块) modelid (按模型搜索点评) catid (按栏目ID) id (信息对应ID) data (点评详情) dianping_typeid(点评类型ID) addtime(添加时间) .
+
+module - 可查看专题的所有点评  
+
+catid -- 可查看对应栏目的所有点评
+
+
+
+
+

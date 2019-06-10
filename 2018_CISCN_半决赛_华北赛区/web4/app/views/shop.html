@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>sshop</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/static/css/jumbotron-narrow.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header clearfix">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <?php if(loggedin()){?>
+                    <li role="presentation">
+                        <a href="/shop">商品列表</a>
+                    </li>
+                    
+                    <li role="presentation">
+                        <a href="/user">个人中心</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="/seckill">！秒杀活动！</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="/shopcar">购物车</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="/user/change">修改密码</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="/logout">注销</a>
+                    </li>
+                    <?php }else{?>
+                    <li role="presentation">
+                        <a href="/shop">商品列表</a>
+                    </li>
+                    
+                    <li role="presentation">
+                        <a href="/login">登录</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="/register">注册</a>
+                    </li>
+                    <?php }?>
+
+                </ul>
+            </nav>
+            <h3 class="text-muted">sshop</h3>
+        </div>
+
+
+
+
+
+
+
+        <div class="row marketing">
+            <div class="commodity-list">
+                <table class="table">
+                    <tr>
+                        <th>商品名称</th>
+                        <th>商品价格</th>
+                        <th>操作</th>
+                    </tr>
+
+                    <?php
+                        if(isset($commoditys)){ 
+                            $len = 0;
+                           foreach($commoditys as $commodity){ 
+                             $len++;?>
+                            
+
+                    <tr>
+                        <td class="commodity-name">
+                            <a href="/info/<?php echo $commodity['id']; ?>"><?php echo $commodity['name'];?></a>
+                        </td>
+                        <td><?php echo sprintf("%0.2f",$commodity['price']);?></td>
+                        <td>
+                            <a href="javascript:;" onclick="document.getElementById('hjvTRFEkIDBuansi-<?php echo $commodity['id'];?>').submit();">加入购物车</a>
+                            <form action="/shopcar/add" method="post" id="hjvTRFEkIDBuansi-<?php echo $commodity['id'];?>">
+                                <input type="hidden" name="_xsrf" value="2|06e733cd|7e272e99ee93ae0bb7b7ffdca63bd20e|1526434431" />
+                                <input type="hidden" name="id" value="<?php echo $commodity['id'];?>">
+                            </form>
+                        </td>
+                    </tr>
+                    <?php }} ?>
+                   
+                </table>
+            </div>
+            <?php if($page>1) {?>
+            <div class="pagination col-lg-12">
+                <a href="/shop/index/?page=<?php echo $page-1 ;?>" class="pull-right">上一页</a>
+            </div>
+            <?php  }if($page>0 && $len==10){?>
+            <div class="pagination col-lg-12">
+                <a href="/shop/index/?page=<?php echo $page+1 ;?>" class="pull-right">下一页</a>
+            </div>
+            <?php }?>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2016 Company, Inc.</p>
+        </footer>
+    </div>
+    <!-- /container -->
+</body>
+
+</html>
