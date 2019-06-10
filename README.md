@@ -11,9 +11,9 @@
 
 敬请谅解(^_−)☆  
 
-## Git LFS
+## 大文件存储
 
-由于部分题目文件过大，本仓库已经启用了[Git LFS](https://git-lfs.github.com/)机制，追踪文件为
+~~由于部分题目文件过大，本仓库已经启用了[Git LFS](https://git-lfs.github.com/)机制，追踪文件为~~
 
 ```
 *.zip
