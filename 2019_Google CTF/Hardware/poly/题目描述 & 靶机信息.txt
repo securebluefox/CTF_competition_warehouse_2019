@@ -1,0 +1,12 @@
+Here's another chance to show one that is many.
+nc poly.ctfcompetition.com 1337
+PS C:\Users\lenovo> nc poly.ctfcompetition.com 1337
+Give me a bios image that I can load into qemu that will send "Pull_that_lever1" to 169.254.169.254:80 over tcp. The server can be delayed a bit, so your payload should retry connecting. And by the way, it has to work both in x86_64 and on a qemu arm virt-2.8 machine, all in under 300 seconds
+
+To make your life easier, here are the commands the server will run:
+
+/usr/bin/qemu-system-arm -nographic -machine virt-2.8 -net nic -net "user,restrict=on,net=169.254.0.0/16,host=169.254.169.253,guestfwd=tcp:169.254.169.254:80-cmd:netcat 127.0.0.1 $random_port" -bios $tmpfile
+
+/usr/bin/qemu-system-x86_64 -nographic -net nic -net "user,restrict=on,net=169.254.0.0/16,host=169.254.169.253,guestfwd=tcp:169.254.169.254:80-cmd:netcat 127.0.0.1 $random_port" -bios $tmpfile
+
+Boot image (base64 encoded, limit 3MiB encoded):

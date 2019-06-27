@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)https://cellularautomata.web.ctfcompetition.com/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Reverse Cellular Automata</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./Reverse Cellular Automata_files/bootstrap.min.css">
+  <style type="text/css">
+:root .topbanner,
+:root .container > a.mid-wrapper,
+:root .container > .ads
+{ display: none !important; }</style></head>
+  <body>
+    <div class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <div class="navbar-brand">Reverse Cellular Automata</div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <h3>Challenge</h3>
+      <div class="media">
+        <div class="media-body">
+          <p>We have built a cellular automata with 64 bit steps and obeys Wolfram rule 126, it's boundary condition wraps around so that the last bit is a neighbor of the first bit. Below you can find a special step we chose from the automata.</p>
+          <p>The flag is encrypted with AES256-CBC, the encryption key is the previous step that generates the given step. Your task is to reverse the given step and find the encryption key.</p>
+          <p>Example decryption with 32 bit steps:</p>
+          <p>echo "404c368b" &gt; /tmp/plain.key; xxd -r -p /tmp/plain.key &gt; /tmp/enc.key</p>
+          <p>echo "U2FsdGVkX18+Wl0awCH/gWgLGZC4NiCkrlpesuuX8E70tX8t/TAarSEHTnpY/C1D" | openssl enc -d -aes-256-cbc -pbkdf2 -md sha1 -base64 --pass file:/tmp/enc.key</p>
+        </div>
+      </div>
+      <h3>Examples of 32 bit steps, reverse_rule126 in the example yields only one of the multiple values.</h3>
+      <div class="media">
+        <div class="media-body">
+          <p>rule126('deadbeef') = 73ffe3b8 | reverse_rule126('73ffe3b8') = deadbeef</p>
+          <p>rule126('73ffe3b8') = de0036ec | reverse_rule126('de0036ec') = 73ffe3b8</p>
+          <p>rule126('de0036ec') = f3007fbf | reverse_rule126('f3007fbf') = de0036ec</p>
+        </div>
+      </div>
+      <h3>Flag (base64)</h3>
+      <div class="media">
+        <div class="media-body">
+          <p>U2FsdGVkX1/andRK+WVfKqJILMVdx/69xjAzW4KUqsjr98GqzFR793lfNHrw1Blc8UZHWOBrRhtLx3SM38R1MpRegLTHgHzf0EAa3oUeWcQ=</p>
+        </div>
+      </div>
+      <h3>Obtained step (in hex)</h3>
+      <div class="media">
+        <div class="media-body">
+          <p>66de3c1bf87fdfcf</p>
+        </div>
+      </div>
+    </div>
+  
+</body></html>

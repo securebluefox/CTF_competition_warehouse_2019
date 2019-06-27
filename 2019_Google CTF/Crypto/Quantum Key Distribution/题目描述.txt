@@ -1,0 +1,1 @@
+Generate a key using Quantum Key Distribution (QKD) algorithm and decrypt the flag.

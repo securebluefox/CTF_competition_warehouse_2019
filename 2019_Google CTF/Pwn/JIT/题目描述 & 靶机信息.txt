@@ -1,0 +1,2 @@
+We read on the internet that Java is slow so we came up with the solution to speed up some computations!
+nc jit.ctfcompetition.com 1337

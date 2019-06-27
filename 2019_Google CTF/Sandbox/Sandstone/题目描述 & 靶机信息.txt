@@ -1,0 +1,3 @@
+Everyone does a Rust sandbox, so we also have one!
+
+nc sandstone.ctfcompetition.com 1337

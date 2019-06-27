@@ -1,0 +1,24 @@
+body {
+  font-family: sans-serif;
+  margin: 1em auto;
+  padding: 2em;
+  max-width: 50em;
+}
+
+#time, #turns {
+  display: inline-block;
+  min-width: 7em;
+}
+
+td {
+  font-size: 2em;
+  min-width: 1.5em;
+  height: 1.5em;
+  text-align: center;
+  border: 2px solid red;
+  border-radius: 3px;
+}
+
+td.unknown {
+  background-color: lightgray;
+}

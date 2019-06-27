@@ -1,0 +1,2 @@
+Secure OS with couple microservices. What are they used for? For secure operations, what for.
+nc microservicedaemonos.ctfcompetition.com 1337

@@ -1,0 +1,2 @@
+Do some visual cryptography, and keep it snappy!
+nc code-golf.ctfcompetition.com 1337

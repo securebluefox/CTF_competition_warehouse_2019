@@ -1,0 +1,10 @@
+It's like Google Drive, but better, maybe.
+nc sc00p.ctfcompetition.com 1337
+PS C:\Users\lenovo> nc sc00p.ctfcompetition.com 1337
+
+Hi Alice,
+
+Put in your ip address here and I'll pull the file from you on our usual ssh port and execute my job to call you back with the results.
+
+Thanks,
+Bob

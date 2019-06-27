@@ -1,0 +1,1 @@
+It's hard to reverse a step in a cellular automata, but solvable if done right.

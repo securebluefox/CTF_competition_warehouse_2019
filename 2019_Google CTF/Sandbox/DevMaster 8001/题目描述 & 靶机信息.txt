@@ -1,0 +1,3 @@
+Welcome to your trial account on the premium DevMaster 8001, now with 50% fewer bugs.
+
+nc devmaster-8001.ctfcompetition.com 1337

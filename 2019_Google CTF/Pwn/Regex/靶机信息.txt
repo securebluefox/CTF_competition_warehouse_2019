@@ -1,0 +1,2 @@
+To show impact we're planning to deploy this new regex evaluator. Can you see if there are any bugs with it?
+nc regex.ctfcompetition.com 1337

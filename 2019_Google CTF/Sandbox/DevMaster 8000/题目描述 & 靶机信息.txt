@@ -1,0 +1,5 @@
+Welcome to the DevMaster 8000, your one-stop shop for building your binaries in the cloud!
+
+I wonder who else might be sharing the DevMaster 8000.
+
+nc devmaster.ctfcompetition.com 1337

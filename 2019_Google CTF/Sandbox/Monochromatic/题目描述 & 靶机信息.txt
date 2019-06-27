@@ -1,0 +1,2 @@
+Hello daddy, hello chrome, hello mojo, hello pwn, bye bye sandbox, hello flag
+nc monochromatic.ctfcompetition.com 1337

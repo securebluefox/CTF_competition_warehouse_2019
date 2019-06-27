@@ -1,0 +1,3 @@
+I've stumbled upon this weird minetest map, can you make sense out of it?
+Minetest + mesecons required
+Non-standard flag format (enter bits as 0 and 1).
