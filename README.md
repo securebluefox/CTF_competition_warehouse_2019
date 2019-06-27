@@ -11,9 +11,9 @@
 
 敬请谅解(^_−)☆  
 
-## Git LFS
+## 大文件存储
 
-由于部分题目文件过大，本仓库已经启用了[Git LFS](https://git-lfs.github.com/)机制，追踪文件为
+~~由于部分题目文件过大，本仓库已经启用了[Git LFS](https://git-lfs.github.com/)机制，追踪文件为~~
 
 ```
 *.zip
@@ -22,7 +22,7 @@
 *.tar.xz
 ```
 
-本账户的LFS已超限，并且暂时无购买存储包计划
+本账户的LFS已超限，并且暂时无购买存储包计划，已弃用LFS
 
 因此超过100M的比赛题目改为使用百度网盘存储，并且其余全部比赛题目的文件均在百度网盘有备份
 
@@ -47,10 +47,12 @@
 如果有未收录的题目欢迎合作~可将题目发送至 hebtuerror404@vip.qq.com \~灰常感谢\~φ(>ω<*)  
 
 
-传送门：  
+## 友链传送门：  
 
 [安恒杯系列比赛(AnhengCTF)](https://github.com/hebtuerror404/Anheng_cup_month)  
 
 [河北师范大学网络安全竞赛(HECTF)](https://github.com/HECTF) 
+
+[经典赛题复现环境 CTF Training](https://github.com/CTFTraining/CTFTraining)
 
 
