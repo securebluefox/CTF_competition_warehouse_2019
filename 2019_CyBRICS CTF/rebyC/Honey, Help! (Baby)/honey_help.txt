@@ -1,0 +1,15 @@
+root@myLOVELYcomputer:~/cybrics# ls -la
+total 12
+drwxr-xr-x  2 root root 4096 Jul 22  2019 .
+drwxr-xr-x 21 root root 4096 Jul 22  2019 ..
+-rw-r--r--  1 root root   44 Jul 22  2019 flag
+root@myLOVELYcomputer:~/cybrics# echo $'\e(0'
+
+⎼⎺⎺├@└≤LOVELY␌⎺└⎻┤├␊⎼:·/␌≤␉⎼␋␌⎽# ┌⎽ -┌▒
+├⎺├▒┌ 12
+␍⎼┬│⎼-│⎼-│  2 ⎼⎺⎺├ ⎼⎺⎺├ 4096 J┤┌ 22  2019 .
+␍⎼┬│⎼-│⎼-│ 21 ⎼⎺⎺├ ⎼⎺⎺├ 4096 J┤┌ 22  2019 ..
+-⎼┬-⎼--⎼--  1 ⎼⎺⎺├ ⎼⎺⎺├   44 J┤┌ 22  2019 °┌▒±
+⎼⎺⎺├@└≤LOVELY␌⎺└⎻┤├␊⎼:·/␌≤␉⎼␋␌⎽# ␌▒├ °┌▒± 
+␌≤␉⎼␋␌⎽π␤0┌≤_␌⎼4⎻_1⎽_├␤␋⎽_▒┌13┼␋$␤_0⎼_┬4├?£
+⎼⎺⎺├@└≤LOVELY␌⎺└⎻┤├␊⎼:·/␌≤␉⎼␋␌⎽# 

@@ -1,0 +1,6 @@
+Author: Vlad Roskov (vos)
+
+We Provide you a Login for your scientific researches. Don't try to find the flag.
+
+ssh pro@95.179.148.72
+Password: iamthepr0

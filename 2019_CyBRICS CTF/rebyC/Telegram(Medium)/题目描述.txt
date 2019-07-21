@@ -1,0 +1,5 @@
+Author: Alexander Menshchikov (n0str)
+
+This Telegram bot really loves live face-to-face communication! And it also seems to have some covert channel!
+
+@cybrics_facetoface_bot(http://t.me/cybrics_facetoface_bot)

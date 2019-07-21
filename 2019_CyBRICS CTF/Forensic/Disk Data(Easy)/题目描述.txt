@@ -1,0 +1,3 @@
+Author: Khanov Artur (awengar)
+
+Disk dump hides the flag. Obtain it

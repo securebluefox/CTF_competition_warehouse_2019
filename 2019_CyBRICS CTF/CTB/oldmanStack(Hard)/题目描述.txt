@@ -1,0 +1,10 @@
+Author: George Zaytsev (groke)
+
+Added at 14:40 UTC: to save some guessing, flag is in C:\FLAG_INSIDE\H0H0H0.FLAG on the server.
+
+Show us your shellcoding mastery
+
+ssh oldman@80.240.29.163
+Password: 1qw23er4
+
+qemu-system-i386 -curses -hda oldmanstack.qcow2 -m 8

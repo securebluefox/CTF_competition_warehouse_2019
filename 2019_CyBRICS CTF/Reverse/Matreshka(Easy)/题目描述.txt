@@ -1,0 +1,3 @@
+Author: Khanov Artur (awengar)
+
+Matreshka hides flag. Open it

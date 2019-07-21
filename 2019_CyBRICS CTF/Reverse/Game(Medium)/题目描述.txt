@@ -1,0 +1,14 @@
+Author: George Zaytsev (groke)
+
+Can you pass more than 5 levels?
+
+game_client.elf
+
+run as ./game_client.elf host port
+
+Controls: WASD ¡ª moving, F ¡ª fireball, C ¡ª punch
+
+Game ports (all equal, for load balancing):
+95.179.148.72:10001
+95.179.148.72:10002
+95.179.148.72:10003

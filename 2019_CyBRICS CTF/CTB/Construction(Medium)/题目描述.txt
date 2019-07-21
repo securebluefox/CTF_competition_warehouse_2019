@@ -1,0 +1,8 @@
+Author: Vlad Roskov (vos)
+
+Added at 14:40 UTC: to save some guessing, flag is inside the listening Python script.
+
+Hello test subject # 49277. The next pwning room is not yet complete, so you should just wait here and not enter it until further notice.
+
+ssh testsubject@95.179.148.72
+Password: LabRat#49277

@@ -1,0 +1,8 @@
+Author: George Zaytsev (groke)
+
+Seems like this server doesn't respect network byte order.
+
+It swaps byte order in some tcp header fields (sport, dport, ack, seq). Could you get the flag from it?
+
+209.250.241.50:51966
+

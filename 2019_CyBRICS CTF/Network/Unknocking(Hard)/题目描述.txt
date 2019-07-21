@@ -1,0 +1,5 @@
+Author: Vlad Roskov (vos)
+
+Usually you port-knock to end up in some whitelist. Here to port-knock you need to already be in a whitelist.
+
+Knock your way to the flag.

@@ -1,0 +1,7 @@
+Author: Khanov Artur (awengar)
+
+Reverse this
+
+http://spbctf.ppctf.net:17327/
+
+Mirror: http://95.179.148.72:8773/

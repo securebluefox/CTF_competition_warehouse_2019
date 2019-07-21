@@ -1,0 +1,7 @@
+Author: Vlad Roskov (vos)
+
+We've intercepted this text off the wire of some conspirator, but we have no idea what to do with that.
+
+intercepted_text.txt
+
+Get us their secret documents
