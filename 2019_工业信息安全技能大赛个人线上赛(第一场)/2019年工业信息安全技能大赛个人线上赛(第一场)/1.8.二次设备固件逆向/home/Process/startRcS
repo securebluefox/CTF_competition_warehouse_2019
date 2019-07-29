@@ -1,0 +1,18 @@
+#! /bin/sh
+
+insmod /home/Drive/buzzer_driver.ko
+insmod /home/Drive/NRInOutCtrl.ko
+insmod /home/Drive/at91TWI1.ko
+#insmod /home/Drive/YXandMC.ko
+insmod /home/Drive/YXState.ko
+insmod /home/Drive/IR.ko
+#insmod /home/Drive/iso7816.ko
+insmod /home/Drive/RS485I.ko
+insmod /home/Drive/RS485II.ko
+insmod /home/Drive/driver_key.ko
+insmod /home/Drive/ADBattAll.ko
+insmod /home/Drive/NetUSBStatus.ko
+insmod /home/Drive/at91SPI1.ko
+insmod /home/Drive/Sound.ko
+
+/home/Process/PDaemon
