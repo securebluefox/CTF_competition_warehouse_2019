@@ -1,0 +1,11 @@
+Try to win this game.
+
+account: de1ctf111eos
+
+EOS Jungle2.0 Testnet
+
+You need to win at least 10 times.
+
+You can ask for a flag with the sendmail function. (username: your account, address: your email address)
+
+hint for [Easy EOS]: the num of bet action is in range 0-4. Decompilation is optional.

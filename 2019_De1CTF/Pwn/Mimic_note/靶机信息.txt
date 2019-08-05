@@ -1,0 +1,5 @@
+nc 45.32.120.212 6666
+
+tips: libc is 2.23
+
+hint for [Mimic_note]: The attachment is update and add a new file, plz download the latest one.

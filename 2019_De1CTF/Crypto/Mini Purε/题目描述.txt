@@ -1,0 +1,5 @@
+nc 45.32.100.6 10036 (Singapore)
+
+nc 39.108.37.223 10036 (China)
+
+hint for [Mini Pur¦Å]: No need C or C++ scripts , python or sage scripts is enough

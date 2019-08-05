@@ -1,0 +1,3 @@
+Safe Rust not Safe sometimes
+
+nc 207.148.126.75 60001

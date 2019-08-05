@@ -1,0 +1,1 @@
+Another signal vm challenge. You can get the flag automatically, but it may take a LITTLE time.

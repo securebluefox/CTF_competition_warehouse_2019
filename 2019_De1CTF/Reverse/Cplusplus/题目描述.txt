@@ -1,0 +1,5 @@
+正如它的名字所言，这是一个C++逆向题
+
+As its name suggests, this is a C++ REVERSE.
+
+hint for [Cplusplus]: hashlib.md5("de1ctf{***}").hexdigest() == '0e3c375c8112a7c7c00547e54895fdcc'

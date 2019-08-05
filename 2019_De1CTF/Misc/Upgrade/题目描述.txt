@@ -1,0 +1,10 @@
+在挖掘小型设备的漏洞时，通过刷固件getshell是一个很方便的途径，但首先得提取出文件系统。
+
+It's a good way to getshell IOT by repackage firmware, but you need to extract its file system first.
+
+Upgrade.zip
+
+Upgrade.zip
+
+
+hint for [Upgrade]: DIR-850L
