@@ -1,0 +1,1 @@
+nc df0a72047d6c.gamectf.com 10001

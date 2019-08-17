@@ -1,0 +1,2 @@
+ try to do.
+flag中间内容为 uuid 格式，例：flag{ `str(uuid4())` }
