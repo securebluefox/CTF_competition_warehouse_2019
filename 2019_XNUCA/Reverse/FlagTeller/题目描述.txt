@@ -1,0 +1,12 @@
+This is the bitstream file for a FPGA powered toy device. If you give out the correct password, the device may tell the flag. 
+
+Pin 35 is 12MHz clock, pin 6 is input uart port and pin 11 is output uart port. Input the 16-byte password into the input port and get the flag from output port.
+
+谷歌娘机翻：
+
+这是FPGA供电的玩具设备的比特流文件。 如果您提供正确的密码，设备可能会告诉该标志。
+
+引脚35为12MHz时钟，引脚6为输入uart端口，引脚11为输出uart端口。 将16字节密码输入到输入端口，并从输出端口获取标志。
+
+
+已更新HINT的附件；FPGA型号为iCE40 UP5K，串口波特率115200Hz

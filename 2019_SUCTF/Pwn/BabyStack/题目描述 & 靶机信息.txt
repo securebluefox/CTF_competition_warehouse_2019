@@ -1,0 +1,3 @@
+StackOverflow on Linux is not difficult,how about it on Window?
+
+nc 121.40.159.66 6666

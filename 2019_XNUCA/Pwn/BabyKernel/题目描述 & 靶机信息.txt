@@ -1,0 +1,7 @@
+Please get root shell. To get the flag, please send your exploit and your token to us (E-mail: icqctf@qq.com), we will run it for 10 times (we will reboot the VM between different attempts), if we see a root shell at least once, you will get the flag. Each team has three chances to submit an Exploit.
+
+谷歌娘机翻：
+
+请获取root shell。 要获得标志，请将您的漏洞利用和您的令牌发送给我们（电子邮件：icqctf@qq.com），如果我们看到根shell，我们将运行它10次（我们将在不同的尝试之间重启VM） 至少一次，你会得到旗帜。 每个团队有三次机会提交漏洞利用。
+
+1) physmap spray 2) bridging gadget

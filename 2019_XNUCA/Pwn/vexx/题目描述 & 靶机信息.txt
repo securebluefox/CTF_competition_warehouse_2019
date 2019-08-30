@@ -1,0 +1,11 @@
+user: root
+
+pass: goodluck
+
+Try to escape the QEMU world!
+
+nc 35f56326858b.gamectf.com 30007
+
+增加 nc ec3247983443.gamectf.com 30007
+
+增加第2个nc地址

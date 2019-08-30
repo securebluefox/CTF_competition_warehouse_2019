@@ -1,0 +1,4 @@
+ä¯ÀÀÆ÷°²È«
+First step to the zone.
+http://47.112.119.196:18080/
+http://47.112.132.59:18080/pwn/distrib_061ba807c8b3ef0a236c55e38cf7a297.tar.bz2

@@ -1,0 +1,29 @@
+Escape from this real MicrosoftEdge Sandbox.
+
+To Setup the environment, execute start.bat
+
+
+
+Server running on fully patched Windows 10 1903 18362.239
+
+Interact with Server.exe
+
+then try to read the flag at: C:\\flag.txt
+
+nc 50ab191245e1.gamectf.com 36435
+
+谷歌娘机翻：
+
+逃离这个真正的MicrosoftEdge Sandbox。
+
+要设置环境，请执行start.bat
+
+
+
+服务器在完全修补的Windows 10 1903 18362.239上运行
+
+与Server.exe交互
+
+然后尝试读取标志:C:\\flag.txt
+
+nc 50ab191245e1.gamectf.com 36435

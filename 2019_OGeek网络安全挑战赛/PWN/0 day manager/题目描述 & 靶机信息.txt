@@ -1,0 +1,3 @@
+Manage your 0day carefully
+nc 47.112.137.133 12345
+http://47.112.132.59:18080/pwn/0day_manager_47950eab80a547b393528b96ff4f6fe7.zip

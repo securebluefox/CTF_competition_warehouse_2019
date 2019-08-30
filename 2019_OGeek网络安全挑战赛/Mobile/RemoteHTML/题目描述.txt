@@ -1,0 +1,3 @@
+Open your URL in android's firefox browser(Get pow.py from ace-challenge).
+http://47.112.119.196:10905
+http://47.112.132.59:18080/mobile/RemoteHTML_b43ab23014763626d90c45746f49985c.apk

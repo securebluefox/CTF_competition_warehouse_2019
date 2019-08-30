@@ -1,0 +1,4 @@
+Misc
+
+cut flag sleep repeat
+nc 47.112.138.86 11111

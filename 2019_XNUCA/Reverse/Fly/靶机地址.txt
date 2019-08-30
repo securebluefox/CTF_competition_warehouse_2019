@@ -1,0 +1,3 @@
+nc e552a168f687.gamectf.com 9999
+
+Find rules of the map, decrypt SPN, and find the random seeds

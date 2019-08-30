@@ -1,0 +1,4 @@
+Reverse
+
+I run the js code and get flag
+http://47.112.132.59:18080/re/reverse_8v_19a0afd41d93fae8ff04a828ccccf49c

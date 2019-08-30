@@ -1,0 +1,3 @@
+Sign it and break it.
+nc 47.112.136.104 17777
+http://47.112.132.59:18080/crypto/sign_result_a403b0256d5a6dfa44e5b8f2b108c24d.txt

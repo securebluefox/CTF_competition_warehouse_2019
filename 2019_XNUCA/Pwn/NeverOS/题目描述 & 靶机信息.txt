@@ -1,0 +1,12 @@
+Hitcon2018 abyss revenge --- There is another interesting bug in abyss's kernel binary and hypervisor.
+
+
+
+Serve work in Ubuntu18.04.
+
+
+
+And we give the diff.
+
+nc 35bb07ef9162.gamectf.com 17353
+

@@ -1,0 +1,18 @@
+there are two flags in the form of xnuca{…}. Please submit the concatenation of the two string between the brackets (brackets not included). E.g. if the first flag is xnuca{here_is_flag1}, the second flag is xnuca{here_is_flag2}, please submit: here_is_flag1here_is_flag2.
+
+NOTICE: The following host port isn't this program's service.
+
+nc 4438af7809b0.gamectf.com 9901
+
+nc 55a11bac354f.gamectf.com 9901
+
+谷歌娘机翻：
+
+xnuca{...}形式有两个标志。 请在括号之间提交两个字符串的串联（括号不包括在内）。
+例如， 如果第一个标志是xnuca {here_is_flag1}，则第二个标志是xnuca {here_is_flag2}，请提交：here_is_flag1here_is_flag2。
+注意：以下主机端口不是此程序的服务。
+
+nc 4438af7809b0.gamectf.com 9901
+
+nc 55a11bac354f.gamectf.com 9901
+

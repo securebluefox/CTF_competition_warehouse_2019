@@ -1,0 +1,7 @@
+PWN
+
+nc 47.112.139.218 13132
+http://47.112.132.59:18080/pwn/hub_2bcab892e2e5b54edbef4ccecd6f373f
+tip:题目环境为Ubuntu18.04，flag路径/home/flag
+
+

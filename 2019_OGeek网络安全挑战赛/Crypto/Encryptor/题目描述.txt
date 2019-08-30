@@ -1,0 +1,3 @@
+Good Encryptor need nothing.该题目flag没有格式。直接提交字符串
+http://47.112.132.59:18080/crypto/encryptor_f8e1b3466ecf98e3a0b2ade8c4009e66
+hint：whitebox

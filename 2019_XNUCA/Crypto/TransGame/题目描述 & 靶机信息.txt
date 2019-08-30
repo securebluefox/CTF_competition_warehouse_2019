@@ -1,0 +1,3 @@
+nc 39.96.203.123 23617
+
+hint: yubikey 4 pgp keygen

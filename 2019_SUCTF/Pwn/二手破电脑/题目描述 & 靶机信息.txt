@@ -1,0 +1,3 @@
+old pc, old method.
+
+nc 47.111.59.243 10001
