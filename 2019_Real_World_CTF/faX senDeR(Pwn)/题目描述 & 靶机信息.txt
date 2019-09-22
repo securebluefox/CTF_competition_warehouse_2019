@@ -1,0 +1,7 @@
+Fax fAx faX fax.
+
+nc tcp.realworldctf.com 10917
+
+faX_senDeR.zip
+
+NOTE: The server is running on the remote. Client is just for testing.

@@ -1,0 +1,19 @@
+After you solved all part 1,2,3,4,5,you will get an egg flag
+
+the flag is N1EGG{sha256(part1'sflag+part2'sflag+part3'sflag+part4'sflag+part5'sflag)}
+
+for example:
+
+part1's flag is N1CTF{1}
+
+part2's flag is N1CTF{2}
+
+part3's flag is N1CTF{3}
+
+part4's flag is N1CTF{4}
+
+part5's flag is N1CTF{5}
+
+
+the egg flag is N1EGG{sha256(12345)}
+Have fun:)

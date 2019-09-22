@@ -1,0 +1,7 @@
+Welcome to C¨¤i D¨¡n T¨ª ("menu challenge" in Chinese). Up for a wrestling with ptmalloc & glibc challenge? You WILL be disappointed.
+
+Built on top of commit ee37c146332dea8f30536b76839190cc6e839f2d
+
+This challenge has two flags, submit flag 1 here.
+
+nc 54.177.17.135 23333

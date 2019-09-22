@@ -1,0 +1,1 @@
+Do you know why Google deprecates XSS Auditor for Chrome? Because bypassing the auditor is nothing but a CTF challenge.

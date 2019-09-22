@@ -1,0 +1,3 @@
+You've earned a lot of cash from investing bitcoins! Why not try our coolest multi-signature bank?
+
+nc tcp.realworldctf.com 20014

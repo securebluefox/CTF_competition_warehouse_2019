@@ -1,0 +1,5 @@
+Welcome to Love Live School Idol Festival, can you encrypt this file in the same way as start.lua in the game asset?
+
+Note: after you encrypted this file, the flag will show up in the encrypted file
+
+attachment:https://drive.google.com/file/d/15lcyJXNlOPbOJB1vKPQn3-Wv97pkb39c/view?usp=sharing

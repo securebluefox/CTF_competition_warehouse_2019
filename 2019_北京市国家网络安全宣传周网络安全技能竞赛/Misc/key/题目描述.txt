@@ -1,0 +1,7 @@
+key_fcac61f208a1710cfcf6d04891bfd942.zip
+
+一把神奇的钥匙。
+
+Hint 1:RGB值异或KEY值；
+
+Hint 2:提取钥匙中特殊颜色的RGB循环异或KEY值;

@@ -1,0 +1,9 @@
+......
+    
+    event SendFlag(string b64email);
+    
+    function payforflag(string b64email) public {
+        require(balanceOf[msg.sender] >= 100000);
+        emit SendFlag(b64email);
+    }
+............

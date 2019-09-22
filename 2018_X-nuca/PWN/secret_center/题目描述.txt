@@ -1,3 +1,0 @@
-Welcome to my secret center, can you read my secret? 
-
-Hint: `strace` might tell you what happens.

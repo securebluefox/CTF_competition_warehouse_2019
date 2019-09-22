@@ -1,0 +1,5 @@
+Are you a hacker or script kiddie？
+
+nc 112.126.97.26 9999
+
+哈希扩展攻击+对双线性对的基础理解

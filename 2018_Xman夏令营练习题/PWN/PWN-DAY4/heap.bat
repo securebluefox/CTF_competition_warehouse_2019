@@ -1,1 +1,0 @@
-AppJailLauncher.exe /timeout:600 /port:1234 heap.exe /nojail

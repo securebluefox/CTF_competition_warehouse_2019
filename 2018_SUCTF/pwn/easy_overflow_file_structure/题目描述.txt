@@ -1,1 +1,0 @@
-Asuri simple server,input my diy header to get Asuri's secret.

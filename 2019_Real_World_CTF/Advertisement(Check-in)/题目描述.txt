@@ -1,0 +1,1 @@
+What is the powerful security assessment tool developed by Chaitin Tech? Flag is in standard format rwctf{}.

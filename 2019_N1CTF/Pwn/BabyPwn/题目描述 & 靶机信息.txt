@@ -1,0 +1,13 @@
+Hello,Welcome to N1CTF2019!
+
+I type a Nu1L Team management system.But my coding skill is bad.The program is simple, help me to test it..
+
+attachment £ºhttps://share.weiyun.com/5SQLalI password£ºwmdn9y
+
+or
+
+https://drive.google.com/file/d/1et5-6sD3E-3-IDp8JP4kDyDCbHGgAdna/view?usp=sharing
+
+nc 49.232.101.41 9999
+
+nc 124.156.209.69 9999

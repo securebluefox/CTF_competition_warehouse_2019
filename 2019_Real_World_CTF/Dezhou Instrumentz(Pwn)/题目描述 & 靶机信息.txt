@@ -1,0 +1,5 @@
+42 has just been proven the sum of three cubes, but my calculator needs some time to support pow
+
+Visit this page to submit your payload: http://40.73.17.40:3000/
+
+Time limit for the exploit is 25 seconds.

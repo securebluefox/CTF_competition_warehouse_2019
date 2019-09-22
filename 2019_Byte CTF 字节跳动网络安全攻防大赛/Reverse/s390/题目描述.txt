@@ -1,0 +1,1 @@
+IBM s/390, how to deal with it? Likely, you can build a cross toolchain. Tips: s390x-linux-gnu-gcc -Wall -Wextra -s s390.c -o s390 -DTEST -static

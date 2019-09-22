@@ -1,0 +1,9 @@
+attachment£ºhttps://share.weiyun.com/5Ejcto1 password£ºwhhc9b
+
+or
+
+https://drive.google.com/open?id=1mlV9f34ijJk7IHJF1LfccX8x6vcUuXlQ
+
+ssh n1ctf@34.80.203.223
+
+password:n1ctf

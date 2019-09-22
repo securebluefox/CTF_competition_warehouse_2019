@@ -1,1 +1,0 @@
-DROP TABLE IF EXISTS `phpcms_member_address`;

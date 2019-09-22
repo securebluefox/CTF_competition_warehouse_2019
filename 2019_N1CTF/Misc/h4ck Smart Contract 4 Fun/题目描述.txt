@@ -1,0 +1,5 @@
+Contract Address: https://kovan.etherscan.io/address/0xe2d6d8808087d2e30eadf0acb67708148dbee0c0#contracts
+
+The Goal: Hack the smart contract and execute the winnerSubmit function
+
+PS£ºUpdate Contract Address

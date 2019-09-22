@@ -1,0 +1,9 @@
+Please fools the resnet to predict everything as cat.
+
+In the attachment, there are 10 images in origin_images folder, you need to modify them (and minimize the L2-norm of your modification) so that the resnet model given as ckpt.pth and predict.py will recognize them as cats.
+
+Attachment: https://drive.google.com/open?id=1-PtjNsvhrqSFyZuJX0GAnr4LgXX5NWdZ
+
+or
+
+attachment£ºhttps://share.weiyun.com/5ykfdAk pass£ºbvjxka
