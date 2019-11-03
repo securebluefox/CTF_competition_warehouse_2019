@@ -1,0 +1,3 @@
+Fancy slient note!
+
+nc 8sdafgh.gamectf.com 35555

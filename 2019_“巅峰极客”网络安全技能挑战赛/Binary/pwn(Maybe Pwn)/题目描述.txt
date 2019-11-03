@@ -1,0 +1,2 @@
+vtable fake
+nc a139cb3d.gamectf.com 15189

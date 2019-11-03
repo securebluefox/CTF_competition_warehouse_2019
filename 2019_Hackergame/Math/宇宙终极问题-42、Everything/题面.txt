@@ -1,0 +1,27 @@
+Please input your token: 2116:MEUCIQDoI7hH0VFvnXNO/+wI2NLLOcOs/HVEVkCMF1aQLbKvTAIgJT1QDP1On8qPLJma5H3raOogXXnNMqXfnwH1JP0+rZM=
+
+       the        answer
+      toli      fetheuniv
+     ersea     nde     ver
+    ything     the     ans
+   wer tol     ife     the
+  uni  ver           sean
+ dev   ery         thin
+gth    ean       swer
+tolifetheuni    ver
+seandeveryth   ing
+       the     ans      wer
+       tol     ifetheuniver
+       sea     ndeverything
+
+Do you know The Answer to the Ultimate Question of Life, The Universe, and Everything?
+
+Give me 3 integers, x, y, and z, such that
+x^3 + y^3 + z^3 = 42
+
+x = 
+
+Since you already know the Answer to Everything, could you give me 8 integers, a, b, c, d, i, j, k and l, such that
+a^3 + b^3 + c^3 + d^3 = i^2 + j^2 + k^2 + l^2 = random_prime(2^256) * random_prime(2^256) = 5925400625670312011784818167972456937458385731738694973809474253714133967327250685366370789802725066695436946292688120296176485041807559151996379948582777
+
+a = 

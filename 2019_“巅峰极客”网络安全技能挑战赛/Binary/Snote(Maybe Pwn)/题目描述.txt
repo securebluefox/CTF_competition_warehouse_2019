@@ -1,0 +1,5 @@
+看起来是个记事本，哇，怎么看不到更多的页的orz
+
+nc 55fca716.gamectf.com 37009
+
+备用：nc 8f383c80.gamectf.com 40079
