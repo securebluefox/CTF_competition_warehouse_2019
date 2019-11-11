@@ -1,0 +1,2 @@
+据说一步一步学 rop, 是不错的入门方式。 nc pwnto.fun 10000 附件文件：链接：https://share.weiyun.com/5Fn4FEM 密码：8s7tt3 备用: http://geek.sycsec.com:44444/static/file/hello
+https://segmentfault.com/a/1190000005888964

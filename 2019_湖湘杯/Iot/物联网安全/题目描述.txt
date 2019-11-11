@@ -1,0 +1,1 @@
+有一台健忘的 Bluetooth 设备在与其他设备正常通信一段时间后，发现对方开始拒绝自己发送的数据，理由是 CRC 无法通过。请帮这台健忘的设备构造下一个将要发送的 LL packet。其中 PDU 的 payload 为 `0x00 0x11`。哦！幸运的是，这台健忘的设备保存了之前部分正常的通信数据，见附件。 ```Plaintext flag{plain_hex(LL_packet)} ``` e.g. 假如构造的 LL packet 为 `0x11 0x22 0x33`，那么 flag 便为 `112233`。 祝好运！答案提交flag{}括号内的值。

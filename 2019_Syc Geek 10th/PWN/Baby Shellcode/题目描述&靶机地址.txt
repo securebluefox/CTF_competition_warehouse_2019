@@ -1,0 +1,2 @@
+打CSGO，它不香吗？P90 rush b, let's go. nc pwnto.fun 12300 附件文件：链接：https://share.weiyun.com/5N0ik8O 密码：e2i8eu
+只有open.read.write是可用函数 && orw 我觉有必要了解一下linux的系统调用 && flag和bin在同一目录下

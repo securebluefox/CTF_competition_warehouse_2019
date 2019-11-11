@@ -1,0 +1,3 @@
+Such a boring challenge!
+
+nc 8sdafgh.gamectf.com 10001
