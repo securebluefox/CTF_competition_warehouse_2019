@@ -1,0 +1,5 @@
+==Difficulty: simple==
+
+We can do RSA decryption even if e and phi(n) are not coprime.
+
+==Author QQ: 450158900==

@@ -1,0 +1,4 @@
+描述
+Listen...The secret is...M2@...f*#...z()I!(...3;J...Hello?...really noisy here...God bless you get it... https://d3ctf-crypto-1256301804.cos.ap-shanghai.myqcloud.com/noise_6bf8bcee73.py
+题目地址 
+nc 129.226.75.200 33212

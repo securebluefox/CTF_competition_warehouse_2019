@@ -1,0 +1,7 @@
+==Difficulty: medium==
+
+pwn me, plz! 23333
+
+nc 139.129.76.65 50006
+
+==Author QQ: 1969078723==

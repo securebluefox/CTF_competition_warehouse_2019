@@ -1,0 +1,5 @@
+==Difficulty: easy==
+
+aiQG plays games in the 20th century. (You can run this game on a 32 bit system, or use the DOSBox)
+
+==Author QQ: 940163124==

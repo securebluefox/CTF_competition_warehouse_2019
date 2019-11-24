@@ -1,0 +1,11 @@
+==Difficulty: interesting==
+
+不知道大家信安数基学的怎么样
+
+nc 139.129.76.65 60001
+
+The script to pass proof of work is provided in the link.
+
+Have fun :>
+
+==Author QQ: 450158900==

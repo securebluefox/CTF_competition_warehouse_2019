@@ -1,0 +1,11 @@
+==Difficulty: Chanllenging==
+
+Wanna play cyberpunk 2077?
+
+Maybe you should first check this video in the link.
+
+Flag is NCTF{sha256(the picture you solve from the stream code)}, e.g., NCTF{f1829e6b51efb1b939731a6acfe0aea313ddee489d53fbc5b0b5c8d1813ce64c}.
+
+==Author QQ: 450158900==
+
+https://www.twitch.tv/videos/302423092

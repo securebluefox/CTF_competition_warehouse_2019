@@ -1,0 +1,5 @@
+==Difficulty: medium+++==
+
+flag格式NCTF{.*}
+
+==Author QQ: 1403517540==

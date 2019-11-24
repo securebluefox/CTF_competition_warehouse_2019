@@ -1,0 +1,7 @@
+==Difficulty: easy==
+
+flag格式NCTF{.*}
+
+不知道同学们线代考的怎么样啊
+
+==Author QQ: 1403517540==

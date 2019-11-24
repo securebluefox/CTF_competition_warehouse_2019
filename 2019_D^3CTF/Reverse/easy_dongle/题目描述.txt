@@ -1,0 +1,4 @@
+This is an easy hardware dongle which use UART(USB to TTL serial) to decrypt the encryption executable software.
+The .zip archive contains two files, "target" is a ELF executable file of host computer and "dongle.bin" is the binary file which download to the slave device.
+Note that slave device is STM32F103C8T6.
+(Pay attension to memory mapping, instruction set and interrupt vector table of STM32F103)

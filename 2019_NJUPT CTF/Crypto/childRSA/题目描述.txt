@@ -1,0 +1,5 @@
+==Difficulty: baby==
+
+3072-bit RSA moduli are sufficiently sucure in several years. How about this 10240-bit one?
+
+==Author QQ: 450158900==

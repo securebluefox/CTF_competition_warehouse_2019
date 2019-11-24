@@ -1,0 +1,5 @@
+==Difficulty: medium==
+
+aiQG is learning ternary by binary.
+
+==Author QQ: 940163124==

@@ -1,0 +1,5 @@
+==Difficulty: easy==
+
+DES has a very bad key schedule.
+
+==Author QQ: 450158900==

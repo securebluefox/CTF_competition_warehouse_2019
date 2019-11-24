@@ -1,0 +1,9 @@
+==Difficulty: medium++==
+
+rop rop rop!!!
+
+ubuntu 16. 04
+
+nc 139.129.76.65 50002
+
+==Author QQ: 543546992==

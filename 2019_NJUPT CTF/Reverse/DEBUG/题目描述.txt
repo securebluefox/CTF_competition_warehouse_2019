@@ -1,0 +1,10 @@
+==Difficulty: easy==
+
+flag格式NCTF{.*}
+
+此题单纯考察调试
+
+flag一调就出哦~~~
+
+==Author QQ: 1403517540==
+

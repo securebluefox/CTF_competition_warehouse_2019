@@ -1,0 +1,7 @@
+==Difficulty: intuitive==
+
+The plaintext is a string of meaningful lowercase letters, without whitespace.
+
+Please submit the result with "NCTF{}" wrapped.
+
+==Author QQ: 450158900==

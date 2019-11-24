@@ -1,0 +1,7 @@
+==Difficulty: medium++==
+
+It is time to warm up.
+
+nc 139.129.76.65 50007
+
+==Author QQ: 1969078723==
